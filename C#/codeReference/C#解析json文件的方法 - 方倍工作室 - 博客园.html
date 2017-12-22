@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)https://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/analytics.js.다운로드"></script><script type="text/javascript" src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/encoder.js.다운로드"></script><script async="" src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/stat.php"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C#解析json文件的方法 - 方倍工作室 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/bundle-SimpleBlue.css">
+<link type="text/css" rel="stylesheet" href="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/99079.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/bundle-SimpleBlue-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/txw1958/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/txw1958/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/txw1958/wlwmanifest.xml">
+<script src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/jquery.js.다운로드" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'txw1958', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/blog-common.js.다운로드" type="text/javascript"></script>
+<script src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=420529"></script></head>
+<body>
+<a name="top"></a>
+<div id="page_begin_html"><div style="display:none">
+<div style="display: none" id="__document_write_ajax_div-1"></div>
+</div></div><script>load_page_begin_html();</script>
+
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+		
+<!--done-->
+<div class="title"><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/txw1958/">方倍工作室</a></div>
+<div class="subtitle">一站式微信公众平台开发学习综合服务平台 定制开发加QQ：1354386063</div>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li id="nav_sitehome"></li>
+<li id="nav_myhome"><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/txw1958/">首页</a></li>
+<li id="nav_newpost"><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li id="nav_contact"><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E6%96%B9%E5%80%8D%E5%B7%A5%E4%BD%9C%E5%AE%A4">联系</a></li>
+<li id="nav_rss">
+<!----></li>
+<li id="nav_admin"><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔-646&nbsp;
+文章-23&nbsp;
+评论-2083&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html">C#解析json文件的方法</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><p><strong>C#</strong> <strong>解析 </strong><strong>json</strong></p>
+<p><br>　　JSON(全称为JavaScript Object Notation) 是一种轻量级的数据交换格式。它是基于JavaScript语法标准的一个子集。 JSON采用完全独立于语言的文本格式，可以很容易在各种网络、平台和程序之间传输。JSON的语法很简单，易于人阅读和编写，同时也易于机器解析和生成。</p>
+<p><strong style="color: #0000ff;">JSON与XML的比较</strong><strong><br></strong>◆可读性<br>　　JSON和XML的可读性相比较而言，由于XML提供辅助的标签，更加适合人阅读和理解。<br>◆文件大小与传输<br>　　XML允许使用方便的标签，所以文件尺寸是要比JSON大的。而且JSON源于Javascript，所以天生的主战场是Javascript与网络，在这里，JSON有着XML无法赶超的优势。</p>
+<p><strong style="color: #0000ff;">JSON语法</strong><strong><br></strong>1. JSON 语法是 JavaScript 对象表示法语法的子集。</p>
+<ul>
+<li>数据在名称/值对中：名称是字符串，使用双引号表示。值可以是：数字（整数或浮点数），字符串（在双引号中）,数组（在方括号中）,对象（在花括号中），true/false/null。</li>
+<li>数据由逗号分隔：</li>
+<li>花括号保存对象：对象可以包含各种数据，包括数组。</li>
+<li>方括号保存数组：数字可以包含对象。</li>
+
+</ul>
+<p>例如：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<div>{<br>&nbsp;&nbsp;&nbsp;&nbsp;"employees":&nbsp;[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"firstName":&nbsp;"Bill",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lastName":&nbsp;"Gates"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"firstName":&nbsp;"George",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"lastName":&nbsp;"Bush"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;]<br>}</div>
+
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>2. 如果JSON中含有转义字符，则需要转义。例如文件路径中需要使用"\\"而不是"\"。例如：{ "file":"C:\\a.txt"}。</p>
+<p>&nbsp;</p>
+<p><span style="color: #0000ff;"><strong>.NET操作JSON</strong></span><br>　　JSON文件读入到内存中就是字符串，.NET操作JSON就是生成与解析JSON字符串。操作JSON通常有以下几种方式：<br><strong style="color: #ff6600;">1. 原始方式</strong>：自己按照JSON的语法格式，写代码直接操作JSON字符串。如非必要，应该很少人会走这条路，从头再来的。</p>
+<p><span style="color: #ff6600;"><strong>2. 通用方式<span style="color: #ff0000;">【★★★★★】</span></strong></span>：</p>
+<p>这种方式是使用开源的类库Newtonsoft.Json(下载地址<a href="http://json.codeplex.com/">http://json.codeplex.com/</a>)。下载后加入工程就能用。通常可以使用JObject, JsonReader, JsonWriter处理。这种方式最通用，也最灵活，可以随时修改不爽的地方。<br>(1)使用JsonReader读Json字符串：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<div>string&nbsp;jsonText&nbsp;=&nbsp;@"{""input""&nbsp;:&nbsp;""value"",&nbsp;""output""&nbsp;:&nbsp;""result""}";<br>JsonReader&nbsp;reader&nbsp;=&nbsp;<span style="color: #0000ff;">new</span>&nbsp;JsonTextReader(<span style="color: #0000ff;">new</span>&nbsp;StringReader(jsonText));<br><br><span style="color: #0000ff;">while</span>&nbsp;(reader.Read())<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(reader.TokenType&nbsp;+&nbsp;"\t\t"&nbsp;+&nbsp;reader.ValueType&nbsp;+&nbsp;"\t\t"&nbsp;+&nbsp;reader.Value);<br>}</div>
+
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>(2)使用JsonWriter写字符串：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<div>StringWriter&nbsp;sw&nbsp;=&nbsp;<span style="color: #0000ff;">new</span>&nbsp;StringWriter();<br>JsonWriter&nbsp;writer&nbsp;=&nbsp;<span style="color: #0000ff;">new</span>&nbsp;JsonTextWriter(sw);<br><br>writer.WriteStartObject();<br>writer.WritePropertyName(<span style="color: #800000;">"</span><span style="color: #800000;">input</span><span style="color: #800000;">"</span>);<br>writer.WriteValue(<span style="color: #800000;">"</span><span style="color: #800000;">value</span><span style="color: #800000;">"</span>);<br>writer.WritePropertyName(<span style="color: #800000;">"</span><span style="color: #800000;">output</span><span style="color: #800000;">"</span>);<br>writer.WriteValue(<span style="color: #800000;">"</span><span style="color: #800000;">result</span><span style="color: #800000;">"</span>);<br>writer.WriteEndObject();<br>writer.Flush();<br><br><span style="color: #0000ff;">string</span>&nbsp;jsonText&nbsp;=&nbsp;sw.GetStringBuilder().ToString();<br>Console.WriteLine(jsonText);</div>
+
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;(3)使用JObject读写字符串：</p>
+<div class="cnblogs_code">
+<div>JObject&nbsp;jo&nbsp;=&nbsp;JObject.Parse(jsonText);<br><span style="color: #0000ff;">string</span>[]&nbsp;values&nbsp;=&nbsp;jo.Properties().Select(item&nbsp;=&gt;&nbsp;item.Value.ToString()).ToArray();</div>
+
+</div>
+<p>&nbsp;(4)使用JsonSerializer读写对象(基于JsonWriter与JsonReader):&nbsp;</p>
+<p>数组型数据</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">string</span> jsonArrayText1 = <span style="color: #800000;">"</span><span style="color: #800000;">[{'a':'a1','b':'b1'},{'a':'a2','b':'b2'}]</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+JArray ja </span>=<span style="color: #000000;"> (JArray)JsonConvert.DeserializeObject(jsonArrayText1);
+</span><span style="color: #0000ff;">string</span> ja1a = ja[<span style="color: #800080;">1</span>][<span style="color: #800000;">"</span><span style="color: #800000;">a</span><span style="color: #800000;">"</span><span style="color: #000000;">].ToString();
+</span><span style="color: #008000;">//</span><span style="color: #008000;">或者</span>
+JObject o = (JObject)ja[<span style="color: #800080;">1</span><span style="color: #000000;">];
+</span><span style="color: #0000ff;">string</span> oa = o[<span style="color: #800000;">"</span><span style="color: #800000;">a</span><span style="color: #800000;">"</span>].ToString();</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>嵌套格式</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">string</span> jsonText = <span style="color: #800000;">"</span><span style="color: #800000;">{\"beijing\":{\"zone\":\"海淀\",\"zone_en\":\"haidian\"}}</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+JObject jo </span>=<span style="color: #000000;"> (JObject)JsonConvert.DeserializeObject(jsonText);
+</span><span style="color: #0000ff;">string</span> zone = jo[<span style="color: #800000;">"</span><span style="color: #800000;">beijing</span><span style="color: #800000;">"</span>][<span style="color: #800000;">"</span><span style="color: #800000;">zone</span><span style="color: #800000;">"</span><span style="color: #000000;">].ToString();
+</span><span style="color: #0000ff;">string</span> zone_en = jo[<span style="color: #800000;">"</span><span style="color: #800000;">beijing</span><span style="color: #800000;">"</span>][<span style="color: #800000;">"</span><span style="color: #800000;">zone_en</span><span style="color: #800000;">"</span>].ToString();</pre>
+</div>
+<p>自定义类Project</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<div>Project&nbsp;p&nbsp;=&nbsp;<span style="color: #0000ff;">new</span>&nbsp;Project()&nbsp;{&nbsp;Input&nbsp;=&nbsp;<span style="color: #800000;">"</span><span style="color: #800000;">stone</span><span style="color: #800000;">"</span>,&nbsp;Output&nbsp;=&nbsp;<span style="color: #800000;">"</span><span style="color: #800000;">gold</span><span style="color: #800000;">"</span>&nbsp;};<br>JsonSerializer&nbsp;serializer&nbsp;=&nbsp;<span style="color: #0000ff;">new</span>&nbsp;JsonSerializer();<br>StringWriter&nbsp;sw&nbsp;=&nbsp;<span style="color: #0000ff;">new</span>&nbsp;StringWriter();<br>serializer.Serialize(<span style="color: #0000ff;">new</span>&nbsp;JsonTextWriter(sw),&nbsp;p);<br>Console.WriteLine(sw.GetStringBuilder().ToString());<br><br>StringReader&nbsp;sr&nbsp;=&nbsp;<span style="color: #0000ff;">new</span>&nbsp;StringReader(<span style="color: #800000;">@"</span><span style="color: #800000;">{""Input"":""stone"",&nbsp;""Output"":""gold""}</span><span style="color: #800000;">"</span>);<br>Project&nbsp;p1&nbsp;=&nbsp;(Project)serializer.Deserialize(<span style="color: #0000ff;">new</span>&nbsp;JsonTextReader(sr),&nbsp;<span style="color: #0000ff;">typeof</span>(Project));<br>Console.WriteLine(p1.Input&nbsp;+&nbsp;<span style="color: #800000;">"</span><span style="color: #800000;">=&gt;</span><span style="color: #800000;">"</span>&nbsp;+&nbsp;p1.Output);</div>
+
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>　　上面的代码都是基于下面这个Project类定义：</p>
+<div class="cnblogs_code">
+<div><span style="color: #0000ff;">class</span>&nbsp;Project<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">public</span>&nbsp;<span style="color: #0000ff;">string</span>&nbsp;Input&nbsp;{&nbsp;<span style="color: #0000ff;">get</span>;&nbsp;<span style="color: #0000ff;">set</span>;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">public</span>&nbsp;<span style="color: #0000ff;">string</span>&nbsp;Output&nbsp;{&nbsp;<span style="color: #0000ff;">get</span>;&nbsp;<span style="color: #0000ff;">set</span>;&nbsp;}<br>}</div>
+
+</div>
+<p>　　此外，如果上面的JsonTextReader等类编译不过的话，说明是我们自己修改过的类，换成你们自己的相关类就可以了，不影响使用。</p>
+<p><strong style="color: #ff6600;">3. 内置方式</strong>：使用.NET Framework 3.5/4.0中提供的System.Web.Script.Serialization命名空间下的JavaScriptSerializer类进行对象的序列化与反序列化，很直接。</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<div>&nbsp;Project&nbsp;p&nbsp;=&nbsp;<span style="color: #0000ff;">new</span>&nbsp;Project()&nbsp;{&nbsp;Input&nbsp;=&nbsp;<span style="color: #800000;">"</span><span style="color: #800000;">stone</span><span style="color: #800000;">"</span>,&nbsp;Output&nbsp;=&nbsp;<span style="color: #800000;">"</span><span style="color: #800000;">gold</span><span style="color: #800000;">"</span>&nbsp;};<br>&nbsp;JavaScriptSerializer&nbsp;serializer&nbsp;=&nbsp;<span style="color: #0000ff;">new</span>&nbsp;JavaScriptSerializer();<br>&nbsp;<span style="color: #0000ff;">var</span>&nbsp;json&nbsp;=&nbsp;serializer.Serialize(p);<br>&nbsp;Console.WriteLine(json);<br><br>&nbsp;<span style="color: #0000ff;">var</span>&nbsp;p1&nbsp;=&nbsp;serializer.Deserialize&lt;Project&gt;(json);<br>&nbsp;Console.WriteLine(p1.Input&nbsp;+&nbsp;<span style="color: #800000;">"</span><span style="color: #800000;">=&gt;</span><span style="color: #800000;">"</span>&nbsp;+&nbsp;p1.Output);<br>&nbsp;Console.WriteLine(ReferenceEquals(p,p1));</div>
+
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><strong style="color: #ff0000;">　　注意：</strong>如果使用的是VS2010，则要求当前的工程的Target Framework要改成.Net Framework 4，不能使用Client Profile。当然这个System.Web.Extensions.dll主要是Web使用的，直接在Console工程中用感觉有点浪费资源。<br>　　此外，从最后一句也可以看到，<strong style="color: #008000;">序列化与反序列化是深拷贝的一种典型的实现方式</strong>。</p>
+<p><strong style="color: #ff6600;">4. 契约方式</strong>：使用System.Runtime.Serialization.dll提供的DataContractJsonSerializer或者 JsonReaderWriterFactory实现。</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<div>Project&nbsp;p&nbsp;=&nbsp;<span style="color: #0000ff;">new</span>&nbsp;Project()&nbsp;{&nbsp;Input&nbsp;=&nbsp;<span style="color: #800000;">"</span><span style="color: #800000;">stone</span><span style="color: #800000;">"</span>,&nbsp;Output&nbsp;=&nbsp;<span style="color: #800000;">"</span><span style="color: #800000;">gold</span><span style="color: #800000;">"</span>&nbsp;};<br>DataContractJsonSerializer&nbsp;serializer&nbsp;=&nbsp;<span style="color: #0000ff;">new</span>&nbsp;DataContractJsonSerializer(p.GetType());<br><span style="color: #0000ff;">string</span>&nbsp;jsonText;<br><br><span style="color: #0000ff;">using</span>&nbsp;(MemoryStream&nbsp;stream&nbsp;=&nbsp;<span style="color: #0000ff;">new</span>&nbsp;MemoryStream())<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;serializer.WriteObject(stream,&nbsp;p);<br>&nbsp;&nbsp;&nbsp;&nbsp;jsonText&nbsp;=&nbsp;Encoding.UTF8.GetString(stream.ToArray());<br>&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(jsonText);<br>}<br><br><span style="color: #0000ff;">using</span>&nbsp;(MemoryStream&nbsp;ms&nbsp;=&nbsp;<span style="color: #0000ff;">new</span>&nbsp;MemoryStream(Encoding.UTF8.GetBytes(jsonText)))<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;DataContractJsonSerializer&nbsp;serializer1&nbsp;=&nbsp;<span style="color: #0000ff;">new</span>&nbsp;DataContractJsonSerializer(<span style="color: #0000ff;">typeof</span>(Project));<br>&nbsp;&nbsp;&nbsp;&nbsp;Project&nbsp;p1&nbsp;=&nbsp;(Project)serializer1.ReadObject(ms);<br>&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(p1.Input&nbsp;+&nbsp;<span style="color: #800000;">"</span><span style="color: #800000;">=&gt;</span><span style="color: #800000;">"</span>&nbsp;+&nbsp;p1.Output);<br>}</div>
+
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>　　这里要注意，这里的Project类和成员要加相关的Attribute：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<div>[DataContract]<br><span style="color: #0000ff;">class</span>&nbsp;Project<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;[DataMember]<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">public</span>&nbsp;<span style="color: #0000ff;">string</span>&nbsp;Input&nbsp;{&nbsp;<span style="color: #0000ff;">get</span>;&nbsp;<span style="color: #0000ff;">set</span>;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;[DataMember]<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">public</span>&nbsp;<span style="color: #0000ff;">string</span>&nbsp;Output&nbsp;{&nbsp;<span style="color: #0000ff;">get</span>;&nbsp;<span style="color: #0000ff;">set</span>;&nbsp;}<br>}</div>
+
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><br><strong style="color: #0000ff;">实用参考：</strong><strong><br></strong>JSON验证工具：http://jsonlint.com/<br>JSON简明教程：http://www.w3school.com.cn/json/<br>Newtonsoft.Json类库下载：http://json.codeplex.com/</p>
+<p>原文： <a href="http://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html">http://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html</a></p>
+<p>&nbsp;</p>
+<p>欢迎关注<strong>方倍工作室</strong>微信，了解我们及行业的最新动态</p>
+<p><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/18163732-021ec79880b2424898b74d7d8de62686.jpg" alt=""></p></div><div id="MySignature" style="display: block;"><table style="border: 1px solid; width: 95%" border="1" cellspacing="1" cellpadding="1">
+  <colgroup>
+  <col width="10%">
+  <col width="15%">
+  <col width="15%">
+  <col width="15%">
+  <col width="15%">
+  <col width="15%">
+  </colgroup>
+  <tbody>
+    <tr align="center">
+        <td>服务项目</td>
+        <td>技术咨询</td>
+        <td>微信图书</td>
+        <td>微信视频</td>
+        <td>微信代码</td>
+        <td>定制开发</td>
+	<td>其他福利</td>
+    </tr>
+    <tr align="center">
+        <td>服务入口</td>
+        <td>QQ群有问必答<br><a href="http://www.cnblogs.com/txw1958/p/weixin-payask.html" target="_blank"><span style="color: #6f00d2">查看详情</span></a></td>
+        <td><span style="color: #FF0000">一本书解决90%问题</span><br><a href="http://www.cnblogs.com/txw1958/p/buy-ebook.html" target="_blank"><span style="color: #6f00d2">查看详情</span></a>
+        </td>
+        <td><a href="http://www.cnblogs.com/txw1958/p/weixin-video-course.html" target="_blank"><span style="color: #6f00d2">微信开发视频</span></a><br><a href="http://www.cnblogs.com/txw1958/p/weixin-video-course.html" target="_blank"><span style="color: #6f00d2">小程序开发视频</span></a></td>
+        <td><a href="http://www.fangbei.org/code/freecode" target="_blank"><span style="color: #6f00d2">免费代码</span></a><br></td>
+        <td align="center"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1354386063&amp;site=qq&amp;menu=yes" target="_blank"><img title="在线交谈" src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/wpa_style_51.gif" border="0"></a><br>QQ:1354386063</td>
+		<td><a href="http://www.cnblogs.com/txw1958/category/1003229.html" target="_blank"><span style="color: #007500">营销工具</span></a><br><a href="http://www.cnblogs.com/txw1958/p/weixin-special-functions.html" target="_blank"><span style="color: #FF0000"><strong>微信特异功能<strong></strong></strong></span></a></td>
+    </tr>
+  </tbody>
+</table></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(2618996,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;cf14d8e0-c6f4-e011-8ee0-842b2b196315&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/txw1958/" target="_blank"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/20131017185242.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/txw1958/">方倍工作室</a><br>
+            <a href="http://home.cnblogs.com/u/txw1958/followees">关注 - 4</a><br>
+            <a href="http://home.cnblogs.com/u/txw1958/followers">粉丝 - 3404</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;cf14d8e0-c6f4-e011-8ee0-842b2b196315&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(2618996,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">22</span>
+    </div>
+    <div class="buryit" onclick="votePost(2618996,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-regidit.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-regidit.html" title="发布于2012-08-01 12:26">C#操作注册表</a><br><a href="http://www.cnblogs.com/txw1958/archive/2012/08/02/python3-json-non-standard.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/txw1958/archive/2012/08/02/python3-json-non-standard.html" title="发布于2012-08-02 17:31">python3处理不标准json数据</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2012-08-01 20:32</span> <a href="http://www.cnblogs.com/txw1958/">方倍工作室</a> 阅读(<span id="post_view_count">221080</span>) 评论(<span id="post_comment_count">15</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=2618996" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html#" onclick="AddToWz(2618996);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=99079,cb_entryId=2618996,cb_blogApp=currentBlogApp,cb_blogUserGuid='cf14d8e0-c6f4-e011-8ee0-842b2b196315',cb_entryCreatedDate='2012/8/1 20:32:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<!--done-->
+<div class="feedback_area_title">评论列表</div>
+<div class="feedbackNoItems"></div>
+	
+
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html#2439712" class="layer">#1楼</a><a name="2439712" id="comment_anchor_2439712"></a>  <span class="comment_date">2012-08-02 10:48</span> <a id="a_comment_author_2439712" href="http://home.cnblogs.com/u/429408/" target="_blank">南宫萧尘</a> <a href="http://msg.cnblogs.com/send/%E5%8D%97%E5%AE%AB%E8%90%A7%E5%B0%98" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2439712" class="blog_comment_body">写的很好，谢谢。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2439712,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2439712,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html#2440270" class="layer">#2楼</a><a name="2440270" id="comment_anchor_2440270"></a>  <span class="comment_date">2012-08-02 20:34</span> <a id="a_comment_author_2440270" href="http://home.cnblogs.com/u/124559/" target="_blank">Mr.Y</a> <a href="http://msg.cnblogs.com/send/Mr.Y" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2440270" class="blog_comment_body">记号</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2440270,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2440270,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html#2600575" class="layer">#3楼</a><a name="2600575" id="comment_anchor_2600575"></a>  <span class="comment_date">2013-01-15 16:31</span> <a id="a_comment_author_2600575" href="http://www.cnblogs.com/xyfy/" target="_blank">心雨纷扬</a> <a href="http://msg.cnblogs.com/send/%E5%BF%83%E9%9B%A8%E7%BA%B7%E6%89%AC" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2600575" class="blog_comment_body">mark</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2600575,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2600575,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2600575_avatar" style="display:none;">http://pic.cnblogs.com/face/u107029.jpg</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html#2613396" class="layer">#4楼</a><a name="2613396" id="comment_anchor_2613396"></a>  <span class="comment_date">2013-02-03 14:43</span> <a id="a_comment_author_2613396" href="http://www.cnblogs.com/waynechan/" target="_blank">dotnetgeek</a> <a href="http://msg.cnblogs.com/send/dotnetgeek" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2613396" class="blog_comment_body">说得好啊，刚利用博主这篇文章解决了一个难题了。补充的说，JavaScriptSerializer是只能在web项目中才能使用，在winform下，只能使用Newtonsoft.Json.dll了</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2613396,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2613396,&#39;Bury&#39;,this)">反对(1)</a></div><span id="comment_2613396_avatar" style="display:none;">http://pic.cnblogs.com/face/u257851.jpg?id=25085236</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html#2665926" class="layer">#5楼</a><a name="2665926" id="comment_anchor_2665926"></a>  <span class="comment_date">2013-04-25 09:52</span> <a id="a_comment_author_2665926" href="http://home.cnblogs.com/u/521141/" target="_blank">左岸。流年</a> <a href="http://msg.cnblogs.com/send/%E5%B7%A6%E5%B2%B8%E3%80%82%E6%B5%81%E5%B9%B4" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2665926" class="blog_comment_body">学习</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2665926,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2665926,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html#2697268" class="layer">#6楼</a><a name="2697268" id="comment_anchor_2697268"></a>  <span class="comment_date">2013-06-04 09:58</span> <a id="a_comment_author_2697268" href="http://home.cnblogs.com/u/379184/" target="_blank">WaitingEver</a> <a href="http://msg.cnblogs.com/send/WaitingEver" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2697268" class="blog_comment_body">MARK</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2697268,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2697268,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html#2703940" class="layer">#7楼</a><a name="2703940" id="comment_anchor_2703940"></a>  <span class="comment_date">2013-06-13 15:00</span> <a id="a_comment_author_2703940" href="http://home.cnblogs.com/u/520386/" target="_blank">yjx163</a> <a href="http://msg.cnblogs.com/send/yjx163" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2703940" class="blog_comment_body">JavaScriptSerializer确实是要把目标框架改成.nf4</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2703940,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2703940,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html#2703972" class="layer">#8楼</a><a name="2703972" id="comment_anchor_2703972"></a>  <span class="comment_date">2013-06-13 15:30</span> <a id="a_comment_author_2703972" href="http://home.cnblogs.com/u/520386/" target="_blank">yjx163</a> <a href="http://msg.cnblogs.com/send/yjx163" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2703972" class="blog_comment_body">感觉Newtonsoft.Json类库对自定义类Project的序列化和反序列化还是有点麻烦，比起其他的json类库要多写好几行代码，</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2703972,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2703972,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html#2707737" class="layer">#9楼</a><a name="2707737" id="comment_anchor_2707737"></a>  <span class="comment_date">2013-06-18 15:17</span> <a id="a_comment_author_2707737" href="http://www.cnblogs.com/zhousiyu/" target="_blank">@specter</a> <a href="http://msg.cnblogs.com/send/%40specter" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2707737" class="blog_comment_body">学习</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2707737,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2707737,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2707737_avatar" style="display:none;">http://pic.cnblogs.com/face/445840/20130529191926.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html#2854127" class="layer">#10楼</a><a name="2854127" id="comment_anchor_2854127"></a>  <span class="comment_date">2014-01-07 13:31</span> <a id="a_comment_author_2854127" href="http://www.cnblogs.com/huyong/" target="_blank">yonghu86</a> <a href="http://msg.cnblogs.com/send/yonghu86" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2854127" class="blog_comment_body">支持</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2854127,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2854127,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2854127_avatar" style="display:none;">http://pic.cnblogs.com/face/157572/20150613183043.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html#3045758" class="layer">#11楼</a><a name="3045758" id="comment_anchor_3045758"></a>  <span class="comment_date">2014-10-17 13:29</span> <a id="a_comment_author_3045758" href="http://www.cnblogs.com/qin1088/" target="_blank">长风之子</a> <a href="http://msg.cnblogs.com/send/%E9%95%BF%E9%A3%8E%E4%B9%8B%E5%AD%90" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3045758" class="blog_comment_body">绝顶好文，顶顶顶！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3045758,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3045758,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html#3121929" class="layer">#12楼</a><a name="3121929" id="comment_anchor_3121929"></a>  <span class="comment_date">2015-02-02 20:26</span> <a id="a_comment_author_3121929" href="http://home.cnblogs.com/u/659233/" target="_blank">代码小兵的成长</a> <a href="http://msg.cnblogs.com/send/%E4%BB%A3%E7%A0%81%E5%B0%8F%E5%85%B5%E7%9A%84%E6%88%90%E9%95%BF" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3121929" class="blog_comment_body">有没有不需要知道KEY就能获取json里面的value</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3121929,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3121929,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html#3172983" class="layer">#13楼</a><a name="3172983" id="comment_anchor_3172983"></a>  <span class="comment_date">2015-04-29 15:56</span> <a id="a_comment_author_3172983" href="http://home.cnblogs.com/u/639580/" target="_blank">淨明</a> <a href="http://msg.cnblogs.com/send/%E6%B7%A8%E6%98%8E" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3172983" class="blog_comment_body">bing到您的这篇文章，非常感谢，希望能加个好友（QQ：914899525），以后有机会时交流软件技术。我是程序员，这是我的个人网站:<a href="https://zaahan.us/Me" target="_blank">https://zaahan.us/Me</a></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3172983,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3172983,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html#3213389" class="layer">#14楼</a><a name="3213389" id="comment_anchor_3213389"></a>  <span class="comment_date">2015-06-23 11:34</span> <a id="a_comment_author_3213389" href="http://www.cnblogs.com/flyant/" target="_blank">飞翔蚂蚁</a> <a href="http://msg.cnblogs.com/send/%E9%A3%9E%E7%BF%94%E8%9A%82%E8%9A%81" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3213389" class="blog_comment_body">学习,很厉害</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3213389,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3213389,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3213389_avatar" style="display:none;">http://pic.cnblogs.com/face/701910/20141209194005.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html#3308389" class="layer">#15楼</a><a name="3308389" id="comment_anchor_3308389"></a><span id="comment-maxId" style="display:none;">3308389</span><span id="comment-maxDate" style="display:none;">2015/11/17 15:50:24</span>  <span class="comment_date">2015-11-17 15:50</span> <a id="a_comment_author_3308389" href="http://home.cnblogs.com/u/831445/" target="_blank">新陈</a> <a href="http://msg.cnblogs.com/send/%E6%96%B0%E9%99%88" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3308389" class="blog_comment_body">不错</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3308389,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3308389,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="https://cloud.tencent.com/developer/support-plan?fromSource=gwzcw.710852.710852.710852" target="_blank">【推荐】加入腾讯云自媒体扶持计划，免费领取域名&amp;服务器</a><br><a href="http://click.aliyun.com/m/17164/" target="_blank">【推荐】高性能云服务器2折起，0.73元/日节省80%运维成本</a><br><a href="https://news.cnblogs.com/n/582971/" target="_blank">【新闻】H3 BPM体验平台全面上线</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="http://www.gcpowertools.com.cn/products/spreadjs/?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=SpreadJS2&amp;utm_campaign=community" target="_blank"><img width="300" height="250" src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/24442-20171206093644566-325426505.png" alt="SpreadJS2_1206"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="https://news.cnblogs.com/n/585555/" target="_blank">年度十大金句：王健林、马云、董明珠们都说了啥？</a><br> ·  <a href="https://news.cnblogs.com/n/585560/" target="_blank">百度以侵犯商业秘密为由起诉前无人车高管王劲</a><br> ·  <a href="https://news.cnblogs.com/n/585558/" target="_blank">施密特将卸任谷歌母公司Alphabet董事会执行主席</a><br> ·  <a href="https://news.cnblogs.com/n/585557/" target="_blank">与环球音乐签合作协议 Facebook在音乐领域迈出坚实一步</a><br> ·  <a href="https://news.cnblogs.com/n/585556/" target="_blank">美团打车七城出击 滴滴做外卖反击？</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://click.aliyun.com/m/34770/" target="_blank"><img width="468" height="60" src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/24442-20171208101900738-116140477.jpg" alt="阿里云C2-1208"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/585502/" target="_blank">步入云计算</a><br> ·  <a href="http://kb.cnblogs.com/page/531409/" target="_blank">以操作系统的角度述说线程与进程</a><br> ·  <a href="http://kb.cnblogs.com/page/141729/" target="_blank">软件测试转型之路</a><br> ·  <a href="http://kb.cnblogs.com/page/177402/" target="_blank">门内门外看招聘</a><br> ·  <a href="http://kb.cnblogs.com/page/112506/" target="_blank">大道至简，职场上做人做事做管理</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div align="center">
+  <span>
+      <a href="http://www.cnblogs.com/txw1958/p/weixin-development-study.html" target="_blank"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/340216-20170314100603838-282996451.png">
+      </a> <a href="http://www.cnblogs.com/txw1958/p/weixin-payask.html" target="_blank"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/340216-20170314100541432-480644732.jpg">
+      </a> <a href="http://www.cnblogs.com/txw1958/p/weixin-tools-list.html" target="_blank"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/340216-20170314122531854-2072574390.png">
+      </a> <a href="http://www.cnblogs.com/txw1958/p/weixin-special-functions.html" target="_blank"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/340216-20171206225450722-1619602809.jpg">
+      </a>
+  </span>
+  <span>
+      <a href="http://www.cnblogs.com/txw1958/p/buy-ebook.html" target="_blank"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/340216-20170325103421018-2022120711.jpg">
+      </a> <a href="http://www.cnblogs.com/txw1958/articles/weixin-code.html" target="_blank"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/340216-20170325103408049-964535694.jpg">
+      </a> <a href="http://www.cnblogs.com/txw1958/p/weixin-video-course.html" target="_blank"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/340216-20170325103433861-1301702325.jpg">
+      </a> <a href="http://www.cnblogs.com/txw1958/p/weixin-service.html" target="_blank"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/340216-20170325103505096-1732005353.jpg">
+      </a>
+  </span>
+  <span>
+      <a href="http://www.cnblogs.com/txw1958/p/project-masssend.html" target="_blank"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/340216-20170313225250166-1702035298.gif">
+      </a> <a href="http://www.cnblogs.com/txw1958/p/project-taobaofanli.html" target="_blank"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/340216-20170313174005416-1229074066.jpg">
+      </a> <a href="http://www.cnblogs.com/txw1958/p/wxshop-package.html" target="_blank"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/340216-20170313174213682-1216115504.jpg">
+      </a>
+  </span>
+  <span>
+      <a href="http://www.cnblogs.com/txw1958/p/project-hongbao.html" target="_blank"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/340216-20170313174029713-596256668.jpg">
+      </a> <a href="http://www.cnblogs.com/txw1958/p/product-price-management.html" target="_blank"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/340216-20170313173948729-1044904736.png">
+      </a> <a href="http://www.cnblogs.com/txw1958/p/multi-shop-mng-system.html" target="_blank"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/340216-20170313174059760-1414989959.png">
+      </a>
+  </span>
+  <span>
+      <a href="http://www.cnblogs.com/txw1958/p/weixin-book-dev.html" target="_blank"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/340216-20170325103350908-1603108428.jpg">
+      </a> <a href="http://www.cnblogs.com/txw1958/p/multi-scan-pay.html" target="_blank"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/340216-20170313174209120-1781236793.png">
+      </a> <a href="http://www.cnblogs.com/txw1958/p/scene-statistics.html" target="_blank"><img src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/340216-20170313173938932-2089184961.png">
+      </a>
+  </span>
+
+</div>
+<div>
+
+<div><span style="color: #32CD32;">联系：请加QQ: 1354386063</span></div>
+<div><span style="color: #FF1493;">运营：交流QQ群:367829810</span></div>
+<div><span style="color: #0000FF;">技术：免费QQ群:281897016</span></div>
+<div><span style="color: #FF0000;">技术：付费QQ群:518924126</span></div>
+</div><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/txw1958/">方倍工作室</a><br>园龄：<a href="http://home.cnblogs.com/u/txw1958/" title="入园时间：2011-10-12">6年2个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/txw1958/followers/">3404</a><br>关注：<a href="http://home.cnblogs.com/u/txw1958/followees/">4</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;cf14d8e0-c6f4-e011-8ee0-842b2b196315&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+
+</div>
+</div>
+
+</div><div id="sidebar_recentposts" class="sidebar-block">
+<div class="catListEssay">
+<h3 class="catListTitle">最新随笔</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/txw1958/p/weixin-special-functions.html">1. 微信公众号特异功能列表</a></li><li><a href="http://www.cnblogs.com/txw1958/p/weapp-top100.html">2. 微信小程序 TOP100 榜单</a></li><li><a href="http://www.cnblogs.com/txw1958/p/weixin-jd-automation.html">3. 使用微信+京东实现自动化赚钱的技术方法</a></li><li><a href="http://www.cnblogs.com/txw1958/p/alidayu-smssend.html">4. 阿里大鱼短信发送接口开发</a></li><li><a href="http://www.cnblogs.com/txw1958/p/weapp-ssl-https.html">5. 微信小程序开发(6) SSL证书及HTTPS服务器</a></li><li><a href="http://www.cnblogs.com/txw1958/p/wxapp-2048.html">6. 微信小程序开发(5) 2048游戏</a></li><li><a href="http://www.cnblogs.com/txw1958/p/wxapp-companyshow.html">7. 微信小程序开发(4) 企业展示</a></li><li><a href="http://www.cnblogs.com/txw1958/p/wxapp-hotmovie.html">8. 微信小程序开发(3) 热门电影</a></li><li><a href="http://www.cnblogs.com/txw1958/p/domains-suitable-for-wxapp.html">9. 哪些领域适合开发微信小程序</a></li><li><a href="http://www.cnblogs.com/txw1958/p/wxapp-calculator.html">10. 微信小程序开发(2) 计算器</a></li>
+</ul>
+</div>
+</div><div id="sidebar_categories">
+<div class="catListPostCategory">
+<h3 class="catListTitle">随笔分类<span style="font-size:11px;font-weight:normal">(642)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/txw1958/category/327718.html">Python3(72)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/txw1958/category/395687.html">程序人生(48)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/txw1958/category/999153.html">京东联盟(6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/txw1958/category/545894.html">微信动态(105)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/txw1958/category/545892.html">微信高级接口(33)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="http://www.cnblogs.com/txw1958/category/407134.html">微信开发(219)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="http://www.cnblogs.com/txw1958/category/545893.html">微信开发教程(57)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="http://www.cnblogs.com/txw1958/category/637448.html">微信开放平台(7)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="http://www.cnblogs.com/txw1958/category/545895.html">微信认证(4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_9" href="http://www.cnblogs.com/txw1958/category/996147.html">微信小程序(11)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_10" href="http://www.cnblogs.com/txw1958/category/596444.html">微信小店(8)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_11" href="http://www.cnblogs.com/txw1958/category/627800.html">微信硬件(4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_12" href="http://www.cnblogs.com/txw1958/category/545896.html">微信支付v2(29)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_13" href="http://www.cnblogs.com/txw1958/category/624506.html">微信支付v3(25)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_14" href="http://www.cnblogs.com/txw1958/category/1003229.html">营销工具(12)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_15" href="http://www.cnblogs.com/txw1958/category/873256.html">支付宝支付(2)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catList">
+<h3 class="catListTitle">微信导航</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="http://www.cnblogs.com/txw1958/p/buy-ebook.html" rel="nofollow" target="_blank">01_微信开发最佳实践</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="http://www.cnblogs.com/txw1958/p/weixin-book-dev.html" rel="nofollow" target="_blank">02_微信开发书籍推荐</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="http://www.cnblogs.com/txw1958/p/weixin-book.html" rel="nofollow" target="_blank">03_微信图书100本</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_3" href="http://www.fangbei.org/tool/message" rel="nofollow" target="_blank">10_微信基础消息调试器</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_4" href="http://www.fangbei.org/tool/menu" rel="nofollow" target="_blank">20_微信自定义菜单生成器</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_5" href="http://www.fangbei.org/tool/openidlist" rel="nofollow" target="_blank">21_微信OpenID列表获取器</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_6" href="http://www.fangbei.org/tool/qrcode" rel="nofollow" target="_blank">22_微信参数二维码生成器</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_7" href="http://www.fangbei.org/tool/shorturl" rel="nofollow" target="_blank">23_微信短链接生成器</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_8" href="http://www.fangbei.org/tool/masssend" rel="nofollow" target="_blank">24_微信消息无限群发器</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_9" href="http://www.fangbei.org/tool/editor" rel="nofollow" target="_blank">40_微信图文素材编辑器</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_10" href="http://www.fangbei.org/website/index" rel="nofollow" target="_blank">50_微信常用网址</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_11" href="http://www.fangbei.org/tool/emoji" rel="nofollow" target="_blank">60_微信Emoji表情</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_12" href="http://www.cnblogs.com/txw1958/p/wxshop-package.html" rel="nofollow" target="_blank">微信小店套餐</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catList">
+<h3 class="catListTitle">友情链接</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_2_Link_0" href="http://www.helloweba.com/" rel="nofollow" target="_blank">helloweba</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_1" href="http://www.highcharts.com/" rel="nofollow" target="_blank">Highcharts</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_2" href="http://www.cnblogs.com/txw1958/p/tutorials-of-wechat-public-platform.html" rel="nofollow" target="_blank">Tutorials</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_3" href="https://checkcoverage.apple.com/cn/zh?locale=zh_CN" rel="nofollow" target="_blank">苹果产品查询</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/txw1958/p/wechat-tutorial.html">1. 微信公众平台开发入门教程(1571967)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/weixin71-oauth20.html">2. 微信公众平台开发（71）OAuth2.0网页授权(516687)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/weixin76-user-info.html">3. 微信公众平台开发(76) 获取用户基本信息(318819)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/weixin-58-custom-menu.html">4. 微信公众平台开发（58）自定义菜单(272626)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/weixin-js.html">5. 微信JS接口(252744)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/weixin-js-sdk-demo.html">6. 微信JS SDK Demo(232846)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/weixin-qrcode-with-parameters.html">7. 微信公众平台开发(83) 生成带参数二维码(226749)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/weixin-access-token.html">8. 微信公众平台开发(26) ACCESS TOKEN(223191)</a></li><li><a href="http://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html">9. C#解析json文件的方法(221073)</a></li><li><a href="http://www.cnblogs.com/txw1958/archive/2013/01/31/weixin-if2-enable.html">10. 你的服务器没有正确响应Token验证的解决方法(214410)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/wxpayv3-jsapi.html">11. 微信支付开发(1) JS API支付(201471)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/wechat-template-message.html">12. 微信公众平台开发(102) 模板消息(176507)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/weixin-jsapi-pay.html">13. 微信支付开发(3) JS API支付(164661)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/weixin-js-sharetimeline.html">14. 微信公众平台开发(107) 分享到朋友圈和发送给好友(145158)</a></li><li><a href="http://www.cnblogs.com/txw1958/archive/2012/11/07/csharp-dictionary.html">15. C#中的Dictionary字典类介绍(141741)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/txw1958/p/wechat-tutorial.html">1. 微信公众平台开发入门教程(198)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/weixin71-oauth20.html">2. 微信公众平台开发（71）OAuth2.0网页授权(80)</a></li><li><a href="http://www.cnblogs.com/txw1958/archive/2012/11/06/programmer-personal-work.html">3. 程序员接私活经验谈[转](76)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/wxpayv3-jsapi.html">4. 微信支付开发(1) JS API支付(64)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/weixin76-user-info.html">5. 微信公众平台开发(76) 获取用户基本信息(58)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/wxqa.html">6. 微信公众平台开发问答(57)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/weixin-api100.html">7. 接口100(55)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/wechat-template-message.html">8. 微信公众平台开发(102) 模板消息(46)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/weixin-jsapi-pay.html">9. 微信支付开发(3) JS API支付(45)</a></li><li><a href="http://www.cnblogs.com/txw1958/archive/2013/02/26/weixin-if50-music.html">10. 微信公众平台消息接口开发（50）在线点歌/在线音乐(39)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/txw1958/p/wechat-tutorial.html">1. 微信公众平台开发入门教程(119)</a></li><li><a href="http://www.cnblogs.com/txw1958/archive/2012/11/06/programmer-personal-work.html">2. 程序员接私活经验谈[转](60)</a></li><li><a href="http://www.cnblogs.com/txw1958/archive/2012/08/01/csharp-json.html">3. C#解析json文件的方法(22)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/weixin71-oauth20.html">4. 微信公众平台开发（71）OAuth2.0网页授权(21)</a></li><li><a href="http://www.cnblogs.com/txw1958/archive/2012/11/07/csharp-dictionary.html">5. C#中的Dictionary字典类介绍(14)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/weixin-js-sdk-demo.html">6. 微信JS SDK Demo(13)</a></li><li><a href="http://www.cnblogs.com/txw1958/archive/2013/01/27/csharp-calendar.html">7. C#实现万年历(农历、节气、节日、星座、星宿、属相、生肖、闰年月、时辰)(13)</a></li><li><a href="http://www.cnblogs.com/txw1958/archive/2013/01/24/weixin-if1-enable.html">8. 微信公众平台消息接口开发（1）启用接口(13)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/weixin76-user-info.html">9. 微信公众平台开发(76) 获取用户基本信息(12)</a></li><li><a href="http://www.cnblogs.com/txw1958/archive/2013/01/09/guchengzhonglou-weibo-timer.html">10. 古城钟楼微博地支报时程序铛，100行代码实现，价值一天20万粉丝(11)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/wxpayv3-jsapi.html">11. 微信支付开发(1) JS API支付(10)</a></li><li><a href="http://www.cnblogs.com/txw1958/archive/2012/07/16/scrapy-tutorial.html">12. Scrapy入门教程(9)</a></li><li><a href="http://www.cnblogs.com/txw1958/archive/2012/09/24/CSharp-WebBrowser.html">13. C#中的WebBrowser控件的使用(9)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/weixin-php-sdk.html">14. 微信公众平台开发接口PHP SDK完整版(8)</a></li><li><a href="http://www.cnblogs.com/txw1958/p/baidu-weather-forecast-api.html">15. 百度天气预报接口(8)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2017 方倍工作室
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+<!--PageEndHtml Block Begin-->
+<div style="display:none;">
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F674430fbddd66a488580ec86aba288f7' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./C#解析json文件的方法 - 方倍工作室 - 博客园_files/h.js.다운로드" type="text/javascript"></script>
+</div>
+
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":["mshare","qzone","tsina","bdysc","weixin","renren","tqq","tieba","douban","sqq","ibaidu","mogujie","huaban","hx","fx","youdao","sdo","qingbiji","people","xinhua","copy"],"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"7","bdPos":"right","bdTop":"250"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<!--PageEndHtml Block End-->
+
+
+</body></html>

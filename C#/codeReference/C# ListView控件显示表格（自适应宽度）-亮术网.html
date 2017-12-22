@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0050)http://www.liangshunet.com/ca/201309/586362553.htm -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+      
+      <title>C# ListView控件显示表格（自适应宽度）-亮术网</title>
+      <meta name="Keywords" content="ListView控件,listview显示表格">
+      <meta name="Description" content="DataGridView控件显示表格方便，性能却没有那么高；ListView控件显示表格要多写代码，但性能相对高一些；文章分享了使用ListView控件显示表格的一般方法和自适应宽度方法，代码均通过测试，可直接使用。">
+      <link rel="Shortcut Icon" type="image/x-icon" href="http://www.liangshunet.com/liangshu.ico">
+      <link type="text/css" rel="stylesheet" href="./C# ListView控件显示表格（自适应宽度）-亮术网_files/arti.css">
+      <script type="text/javascript" src="./C# ListView控件显示表格（自适应宽度）-亮术网_files/art.js.&#45796;&#50868;&#47196;&#46300;"></script>
+   </head>
+<body>
+   <div class="page">
+      <div class="header">
+         <div class="topNav">
+            <span class="toplf"><a href="http://www.liangshunet.com/">亮术网</a></span>
+            <ul class="fr">
+               <li><a href="http://www.liangshunet.com/" rel="nofollow">首 页</a></li>
+               <li><a href="http://www.liangshunet.com/uc/register.aspx" rel="nofollow">注 册</a> </li>
+               <li class="last"><a href="http://www.liangshunet.com/uc/login.aspx" rel="nofollow">登 录</a></li>
+            </ul>
+         </div>
+         <ul class="bestArt">
+            <li><a href="http://www.liangshunet.com/ca/201309/586362553.htm" target="_blank"><strong>五笔字根表</strong></a> <a href="http://www.liangshunet.com/ca/201301/714563444.htm" target="_blank">dos命令大全</a></li>
+            <li><a href="http://www.liangshunet.com/ca/201301/831175752.htm" target="_blank">C盘哪些文件可以删除</a></li>
+            <li><a href="http://www.liangshunet.com/ca/201301/121208023.htm" target="_blank"><strong>浏览器哪个好</strong></a></li>
+            <li><a href="http://www.liangshunet.com/ca/201301/461765337.htm" target="_blank">清理系统垃圾 bat 下载</a></li>
+            <li><a href="http://www.liangshunet.com/ca/201301/337211093.htm" target="_blank"><strong>文件夹加密</strong></a> <a href="http://www.liangshunet.com/ca/201301/933985298.htm" target="_blank">Word安全模式</a></li>
+            <li><a href="http://www.liangshunet.com/ca/201301/834297518.htm" target="_blank">播放器哪个好用</a></li>
+            <li><a href="http://www.liangshunet.com/ca/201301/234647353.htm" target="_blank"><strong>Ascii码表</strong></a></li>
+            <li><a href="http://www.liangshunet.com/ca/201301/269515844.htm" target="_blank">杀毒软件哪个好</a></li>
+            <li class="search"><input type="text" id="txtSch" class="txtSch" maxlength="100"><input type="button" class="btnSch" value=" 搜 索 " onclick="toSearch(&#39;txtSch&#39;)"></li>
+         </ul>
+      </div>
+      <div class="content">
+         <div class="c2l">
+            <div class="pathNav"><a href="http://www.liangshunet.com/" rel="nofollow"><img src="./C# ListView控件显示表格（自适应宽度）-亮术网_files/artLogo.gif" alt="亮术网" class="logo"></a><span class="path"><a href="http://www.liangshunet.com/prog/" target="_blank">程序开发</a> &gt; <a href="http://www.liangshunet.com/pub/Item.aspx?t=ckcs" target="_blank" rel="nofollow">C#</a> &gt; <a href="http://www.liangshunet.com/pub/Item.aspx?t=ckcswf" target="_blank" rel="nofollow">Winform</a> &gt; 正文</span></div>
+            <div class="article">
+               <h1>C# ListView控件显示表格（自适应宽度）</h1>
+               <div class="artInfo">亮术网  2013-09-10  本网原创</div>
+               <div class="artDetail">
+                  <div class="artAd"><script type="text/javascript" language="javascript">getAdTT();</script><img src="./C# ListView控件显示表格（自适应宽度）-亮术网_files/ad336.jpg"></div>
+                  <p>
+	　　DataGridView控件功能十分强大，显示表格也方便，但性能就没有那么高；ListView控件功能没那么强大，显示表格也要多写代码，但性能相对高一些。开发过程中，可根据需要选用；对于显示表格来说，用 ListView控件也不难，以下是两个具体实例。</p>
+<p>
+	　　1、拉一个 ListView控件到 Form1 窗口中，双击 Form1 窗口打开后台代码文件。</p>
+<p>
+	　　<strong>2、显示表格代码（固定列宽度）：</strong></p>
+<p>
+	　　<span class="ll">using</span> System;<br>
+	　　<span class="ll">using</span> System.Collections.Generic;<br>
+	　　<span class="ll">using</span> System.ComponentModel;<br>
+	　　<span class="ll">using</span> System.Data;<br>
+	　　<span class="ll">using</span> System.Drawing;<br>
+	　　<span class="ll">using</span> System.Text;<br>
+	　　<span class="ll">using</span> System.Windows.Forms;</p>
+<p>
+	　　<span class="ll">namespace</span> ShowTable<br>
+	　　{<br>
+	　　　　<span class="ll">public partial class</span> <span class="hl">Form1</span> : <span class="hl">Form</span><br>
+	　　　　{<br>
+	　　　　　　<span class="ll">public</span> <span class="hl">Form1</span>()<br>
+	　　　　　　{<br>
+	　　　　　　　　InitializeComponent();<br>
+	　　　　　　}</p>
+<p>
+	　　　　　　<span class="ll">private void</span> Form1_Load(<span class="ll">object</span> sender, <span class="ll">EventArgs</span> e)<br>
+	　　　　　　{<br>
+	　　　　　　　　listView1.GridLines = <span class="ll">true</span>;<span class="green">//表格是否显示网格线</span><br>
+	　　　　　　　　listView1.FullRowSelect = <span class="ll">true</span>;<span class="green">//是否选中整行</span></p>
+<p>
+	　　　　　　　　</p>
+<p>
+	　　　　　　　　listView1.<span class="hl">View</span> = <span class="hl">View</span>.Details;<span class="green">//设置显示方式</span><br>
+	　　　　　　　　listView1.Scrollable = <span class="ll">true</span>;<span class="green">//是否自动显示滚动条</span><br>
+	　　　　　　　　listView1.MultiSelect = <span class="ll">false</span>;<span class="green">//是否可以选择多行</span></p>
+<p>
+	　　　　　　　　<span class="green">//添加表头（列）</span><br>
+	　　　　　　　　listView1.Columns.Add(<span class="sh">"产品名称"</span>, 160, <span class="hl">HorizontalAlignment</span>.Center);<br>
+	　　　　　　　　listView1.Columns.Add(<span class="sh">"产品型号"</span>, 100, <span class="hl">HorizontalAlignment</span>.Center);<br>
+	　　　　　　　　listView1.Columns.Add(<span class="sh">"价格"</span>, 100, <span class="hl">HorizontalAlignment</span>.Center);<br>
+	　　　　　　　　listView1.Columns.Add(<span class="sh">"数量"</span>, 100, <span class="hl">HorizontalAlignment</span>.Center);</p>
+<p>
+	　　　　　　　　<span class="green">//添加表格内容</span><br>
+	　　　　　　　　<span class="ll">for</span> (<span class="ll">int</span> i = 0; i &lt; 6; i++)<br>
+	　　　　　　　　{<br>
+	　　　　　　　　　　<span class="hl">ListViewItem</span> item = <span class="ll">new</span> <span class="hl">ListViewItem</span>();<br>
+	　　　　　　　　　　item.SubItems.Clear();</p>
+<p>
+	　　　　　　　　　　item.SubItems[0].Text = <span class="sh">"产品"</span> + i.ToString();<br>
+	　　　　　　　　　　item.SubItems.Add(i.ToString());<br>
+	　　　　　　　　　　item.SubItems.Add((i + 7).ToString());<br>
+	　　　　　　　　　　item.SubItems.Add((i * i).ToString());<br>
+	　　　　　　　　　　listView1.Items.Add(item);<br>
+	　　　　　　　　}<br>
+	　　　　　　}<br>
+	　　　　}<br>
+	　　}</p>
+<p>
+	　　显示表格效果图如图1所示：</p>
+<p style="text-align: center">
+	<img alt="listView显示表格" src="./C# ListView控件显示表格（自适应宽度）-亮术网_files/du4o72v4a783551.jpg"></p>
+<p style="text-align: center">
+	图1</p>
+<p>
+	&nbsp;</p>
+<p>
+	　　<strong>3、自适应列宽度代码如下：</strong></p>
+<p>
+	　　<span class="ll">using</span> System;<br>
+	　　<span class="ll">using</span> System.Collections.Generic;<br>
+	　　<span class="ll">using</span> System.ComponentModel;<br>
+	　　<span class="ll">using</span> System.Data;<br>
+	　　<span class="ll">using</span> System.Drawing;<br>
+	　　<span class="ll">using</span> System.Text;<br>
+	　　<span class="ll">using</span> System.Windows.Forms;</p>
+<p>
+	　　<span class="ll">namespace</span> ShowTable<br>
+	　　{<br>
+	　　　　<span class="ll">public partial class</span> <span class="hl">Form1</span> : <span class="hl">Form</span><br>
+	　　　　{<br>
+	　　　　　　public <span class="hl">Form1</span>()<br>
+	　　　　　　{<br>
+	　　　　　　　　InitializeComponent();<br>
+	　　　　　　}</p>
+<p>
+	　　　　　　<span class="ll">private void</span> Form1_Load(<span class="ll">object</span> sender, <span class="ll">EventArgs</span> e)<br>
+	　　　　　　{<br>
+	　　　　　　　　listView1.GridLines = <span class="ll">true</span>;<span class="green">//表格是否显示网格线</span><br>
+	　　　　　　　　listView1.FullRowSelect = <span class="ll">true</span>;<span class="green">//是否选中整行</span></p>
+<p>
+	　　　　　　　　</p>
+<p>
+	　　　　　　　　listView1.<span class="hl">View</span> = <span class="hl">View</span>.Details;<span class="green">//设置显示方式</span><br>
+	　　　　　　　　listView1.Scrollable = <span class="ll">true</span>;<span class="green">//是否自动显示滚动条</span><br>
+	　　　　　　　　listView1.MultiSelect = <span class="ll">false</span>;<span class="green">//是否可以选择多行</span></p>
+<p>
+	　　　　　　　　<span class="green">//添加表头（列）</span><br>
+	　　　　　　　　listView1.Columns.Add(<span class="sh">"ProductName"</span>, <span class="sh">"产品名称"</span>);<br>
+	　　　　　　　　listView1.Columns.Add(<span class="sh">"SN"</span>, <span class="sh">"产品型号"</span>);<br>
+	　　　　　　　　listView1.Columns.Add(<span class="sh">"Price"</span>, <span class="sh">"价格"</span>);<br>
+	　　　　　　　　listView1.Columns.Add(<span class="sh">"Number"</span>, <span class="sh">"数量"</span>);</p>
+<p>
+	　　　　　　　　<span class="green">//添加表格内容</span><br>
+	　　　　　　　　<span class="ll">for</span> (<span class="ll">int</span> i = 0; i &lt; 3; i++)<br>
+	　　　　　　　　{<br>
+	　　　　　　　　　　<span class="hl">ListViewItem</span> item = <span class="ll">new</span> <span class="hl">ListViewItem</span>();<br>
+	　　　　　　　　　　item.SubItems.Clear();</p>
+<p>
+	　　　　　　　　　　item.SubItems[0].Text = <span class="sh">"产品"</span> + i.ToString();<br>
+	　　　　　　　　　　item.SubItems.Add(i.ToString());<br>
+	　　　　　　　　　　item.SubItems.Add((i + 7).ToString());<br>
+	　　　　　　　　　　item.SubItems.Add((i * i).ToString());<br>
+	　　　　　　　　　　listView1.Items.Add(item);<br>
+	　　　　　　　　}</p>
+<p>
+	　　　　　　　　listView1.Columns["ProductName"].Width = -1;<span class="green">//根据内容设置宽度</span><br>
+	　　　　　　　　listView1.Columns["SN"].Width = -2;<span class="green">//根据标题设置宽度</span></p>
+<p>
+	　　　　　　　　listView1.Columns["Price"].Width = -2;<br>
+	　　　　　　　　listView1.Columns["Number"].Width = -2;<br>
+	　　　　　　}<br>
+	　　　　}<br>
+	　　}</p>
+<p>
+	　　效果图如图2所示：</p>
+<p style="text-align: center">
+	<img alt="listView表格自适应宽度" src="./C# ListView控件显示表格（自适应宽度）-亮术网_files/wadoze36l877610.jpg"></p>
+<p style="text-align: center">
+	图2</p>
+<p>
+	　　以上代码通过 Visual Studio 2010 测试，可直接复到文件运行看效果。</p>
+
+               </div>
+               <div class="artPage"></div>
+           </div>
+           <div class="tags"><span class="blue">本文浓缩标签：</span><a href="http://www.liangshunet.com/pub/tags.aspx?k=ListView" target="_blank">ListView</a><a href="http://www.liangshunet.com/pub/tags.aspx?k=%e8%a1%a8%e6%a0%bc" target="_blank">表格</a><a href="http://www.liangshunet.com/pub/tags.aspx?k=C%23" target="_blank">C#</a></div>
+           <ul>
+              <li class="correArt">
+                 <h3 class="title">相关阅读</h3>
+                 <ul class="ulList"><li><a href="http://www.liangshunet.com/ca/201303/978650751.htm" target="_blank">Hashtable排序的几种方法（C#）</a></li><li><a href="http://www.liangshunet.com/ca/201306/938989787.htm" target="_blank">C# Split用法及实例</a></li><li><a href="http://www.liangshunet.com/ca/201303/886427761.htm" target="_blank">switch和if else 哪个效率高-C#多分支效率比较</a></li><li><a href="http://www.liangshunet.com/ca/201303/859800844.htm" target="_blank">C# 转换为int的3种方法及效率</a></li><li><a href="http://www.liangshunet.com/ca/201305/858899223.htm" target="_blank">C# 修改文件名的2种方法</a></li><li><a href="http://www.liangshunet.com/ca/201304/853990284.htm" target="_blank">C#去掉第一个和最后一个字符</a></li><li><a href="http://www.liangshunet.com/ca/201306/841573796.htm" target="_blank">取绝对值（C#、C++、js）</a></li><li><a href="http://www.liangshunet.com/ca/201303/829991895.htm" target="_blank">C# 判断客户端是否禁用Cookie的方法</a></li></ul>
+              </li>
+              <li class="ad30"><script type="text/javascript" language="javascript"> getAdTZ();</script><img src="./C# ListView控件显示表格（自适应宽度）-亮术网_files/ad300.jpg"></li>
+           </ul>
+        </div>
+         <div id="right" class="c2r"><div class="rList"><ul class="ulList"><li><a href="http://www.liangshunet.com/ca/201306/453800003.htm" target="_blank">js获取当前域名、Url、相对路径</a><span>40092</span></li><li><a href="http://www.liangshunet.com/ca/201310/837449068.htm" target="_blank">Word表格调整（行高、文字上下间</a><span>39303</span></li><li><a href="http://www.liangshunet.com/ca/201311/125404032.htm" target="_blank">C#字典Dictionary排序（顺序、</a><span>32281</span></li><li><a href="http://www.liangshunet.com/ca/201408/549821516.htm" target="_blank">Word表格删除线（一条线、去掉上</a><span>29436</span></li><li><a href="http://www.liangshunet.com/ca/201307/337451622.htm" target="_blank">C#产生指定范围随机数的几种方法</a><span>28010</span></li><li><a href="http://www.liangshunet.com/ca/201308/692259295.htm" target="_blank">网站还原错误怎么办（6种方法）</a><span>22371</span></li><li><a href="http://www.liangshunet.com/ca/201309/586362553.htm" target="_blank">C# ListView控件显示表格（自</a><span>19586</span></li><li><a href="http://www.liangshunet.com/ca/201307/288717461.htm" target="_blank">Office2013和Office2010查</a><span>18038</span></li></ul></div><div class="mt cen">
+<a href="http://www.liangshunet.com/xue/shu.aspx?i=2&amp;t=ofwot6" target="_blank"><img alt="" src="./C# ListView控件显示表格（自适应宽度）-亮术网_files/yw2neo7wd903424m.jpg"></a></div>
+
+<div class="rList mt">
+	<h3 class="title"><a href="http://www.liangshunet.com/ca/201711/282332922.htm" target="_blank" class="red">公司企业网站整站制作教程</a></h3>
+</div>
+<div class="mt">
+	<a href="http://www.liangshunet.com/ca/201705/925564149.htm" target="_blank"><div class="css3Animationeg"><h3 class="textAnimationeg">CSS3动画效果、文字阴影、背景高亮、圆角边框预览</h3></div></a></div>
+<div class="rList mt">
+	<h3 class="title">最受欢迎的技术文章</h3>
+	<ul class="ol">
+               <li><a href="http://www.liangshunet.com/ca/201308/964375350.htm" target="_blank">如何查看电脑的配置</a></li>
+               <li><a href="http://www.liangshunet.com/ca/201304/752305158.htm" target="_blank"><strong class="sh">如何查看硬盘使用时间</strong></a></li>
+               <li><a href="http://www.liangshunet.com/ca/201304/427759064.htm" target="_blank">如何检测硬盘坏道好</a></li>
+               <li><a href="http://www.liangshunet.com/ca/201304/231411553.htm" target="_blank">Everest怎么查看显示器的出厂日期</a></li>
+               <li><a href="http://www.liangshunet.com/ca/201303/244630556.htm" target="_blank">怎么看cpu温度、主板温度和显卡温度</a></li>               <li><a href="http://www.liangshunet.com/ca/201307/759667779.htm" target="_blank"><strong class="sh">随机数函数大全（17种语言）</strong></a></li>
+               <li><a href="http://www.liangshunet.com/ca/201308/198238412.htm" target="_blank">如何查看本机ip（外网、内网）</a></li>
+               <li><a href="http://www.liangshunet.com/ca/201308/692259295.htm" target="_blank">网站还原错误怎么办（6种方法）</a></li>
+	</ul>
+</div>
+<div class="mt">
+<a href="http://www.liangshunet.com/ca/201707/433107452.htm" target="_blank"><img alt="" src="./C# ListView控件显示表格（自适应宽度）-亮术网_files/huaright.jpg"></a></div>
+<div class="mt">
+<a href="http://www.liangshunet.com/cc/index.aspx"><img alt="" src="./C# ListView控件显示表格（自适应宽度）-亮术网_files/compcity.jpg"></a></div>
+<div class="rList mt">
+	<h3 class="title">常用技巧</h3>
+	<ul class="ulList">
+               <li><a href="http://www.liangshunet.com/ca/201312/283849741.htm" target="_blank" class="red">安装系统何时该格式化C盘</a></li>
+               <li><a href="http://www.liangshunet.com/ca/201301/831175752.htm" style="color:#0598dc;" target="_blank">C盘哪些文件可以删除</a></li>
+               <li><a href="http://www.liangshunet.com/ca/201307/455907499.htm" target="_blank" class="sh">怎么保存整个网页（图片或文件）</a></li>
+               <li><a href="http://www.liangshunet.com/ca/201304/495368015_1.htm" target="_blank" style="color:#05ae3d;">键盘快捷键大全</a></li>
+               <li><a href="http://www.liangshunet.com/ca/201301/436435509.htm" class="ll" target="_blank">五笔字根表</a></li>
+               <li><a href="http://www.liangshunet.com/ca/201301/714563444.htm" class="qh" target="_blank">dos命令大全</a></li>
+               <li><a href="http://www.liangshunet.com/ca/201304/394338075.htm" style="color:#ecb202;" target="_blank">word删除空白页</a></li>
+               <li><a href="http://www.liangshunet.com/ca/201301/933985298.htm" style="color:#03dd21;" target="_blank">Word安全模式怎么解除</a></li>
+               <li><a href="http://www.liangshunet.com/ca/201308/249226828.htm" style="color:#eb4762;" target="_blank">QQ老板键如何设置</a></li>
+               <li><a href="http://www.liangshunet.com/ca/201307/685957198.htm" style="color:#e24906;" target="_blank">迅雷老板键设置方法</a></li>
+              <li><a href="http://www.liangshunet.com/ca/201301/234647353.htm" style="color:#4f06e2;" target="_blank">Ascii码表</a></li>
+               <li><a href="http://www.liangshunet.com/ca/201301/666877500.htm" style="color:#b7885a;" target="_blank">Sql与Asp.Net数据类型对应</a></li>
+               <li><a href="http://www.liangshunet.com/ca/201304/289427866.htm" style="color:#e85fa9;" target="_blank">mysql 命令大全</a></li>	</ul>
+</div>
+<style type="text/css">
+.css3Animationeg{position:relative;overflow:hidden;width:298px;height:260px;border:1px solid #bca1ac;background-color:#e3e2e0;text-align:center;}
+.textAnimationeg{transform:translate(0px);animation:Css3-Animationeg 2s ease-out infinite backwards;}
+@keyframes Css3-Animationeg{
+0%{transform:translate(0, 0);opacity:0;}
+10%{transform:translate(0, 100px);opacity:0.5;}
+30%{transform:translate(0, 100px);opacity:1; font-size:36px; color:Red;}
+32%{transform:translate(0, 100px);opacity:1; font-size:36px; color:Yellow;}
+35%{transform:translate(0, 100px);opacity:1; font-size:36px; color:Red;}
+37%{transform:translate(0, 100px);opacity:1; font-size:36px; color:Yellow;}
+40%{transform:translate(0, 100px);opacity:1; font-size:36px; color:Red;}
+80%{transform:translate(0, 50px);opacity:1; font-size:24px; color:Green;}
+100%{transform:translate(0, 50px);opacity:0;}
+}
+.css3Animationeg h3:hover{animation-play-state:paused;}
+</style></div>
+      </div>
+      <div id="footer" class="footer">
+        <div id="footerNav" class="footerNav">
+           <a href="http://www.liangshunet.com/us/index.htm" target="_blank" rel="nofollow">关于我们</a> 
+           <a href="http://www.liangshunet.com/us/contactus.aspx" target="_blank" rel="nofollow">联系我们</a> 
+           <a href="http://www.liangshunet.com/sr/contract.htm" target="_blank" rel="nofollow">服务条款</a>
+           <a href="http://www.liangshunet.com/sr/privacy.htm" target="_blank" rel="nofollow">隐私声明</a>
+           <a href="http://www.liangshunet.com/sr/disclaimer.htm" target="_blank" rel="nofollow">免责声明</a>
+           <a href="http://www.liangshunet.com/us/help.htm" target="_blank" rel="nofollow">帮助中心</a> 
+        </div>
+        <div id="copyright" class="copyright"> Copyright &#169; <span id="crt"> 2012-2013 LiangShuNet.</span> All Rights Reserved </div>
+        <div class="copyright"> 亮术网 版权所有</div>
+      </div>       
+   </div><script type="text/javascript">getValue("right");</script>
+
+
+</body></html>

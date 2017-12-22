@@ -1,0 +1,49 @@
+﻿body{font-family:"宋体",Verdana,Arial,sans-serif; color:#323232; font-size:14px;}
+.page{width:980px; margin-left:auto; margin-right:auto; }
+A{color:#323232; cursor:pointer; text-decoration:none;}
+A:hover{color:#117eed; text-decoration:underline;}
+
+.header{margin-left:auto; margin-right:auto;}
+.topNav{height:22px; margin-top:8px;} .toplf{*float:left; margin-left:6px;}
+.topNav li{float:left; width:50px; text-align:center; background:url(/images/art_bg.png) no-repeat; background-position:100% -342px;} .topNav li.last{background:none;}
+
+.bestArt{line-height:32px; height:63px; border:#c9d9e3 1px solid; _width:980px; margin:2px 0 0 0; padding:10px;}
+.bestArt li{float:left; width:190px;} .bestArt li.search{width:384px;}
+.bestArt A{color:#117eed;} .bestArt A:hover{color:#f20580;}
+.txtSch{margin-top:2px; padding-top:4px; border:solid 1px #33add5; height:19px; width:300px; text-align:left; cursor:text; font-family:simsun,"宋体";} :root .txtSch{padding-top:0px\9; height:22px\9;}
+.btnSch{border:none; margin:0 0 0 4px; *margin-top:4px; background:url(/images/art_bg.png) no-repeat; background-position:0px -370px; height:26px; width:68px; color:#fff; cursor:pointer;}
+
+.fr{float:right;} .fl{float:left;} .mt{margin-top:10px;} .show{display:block;} .ml{margin-left:17px; _margin-left:11px;} .hand{cursor:pointer;}.cen{ text-align:center;}
+.mr{margin-right:14px; _margin-right:10px;} .blue{color:#117eed;} .red{color:Red;} .ll{color:#0000ff;} .hl{color:#2b91af;} .green{color:#027f01;} .sh{color:#c22157;} .qh{color:#898989;}.hb{background-color:Yellow;}
+
+.content{margin:12px 0 0 0; overflow:hidden; position:relative; _width:980px;}
+.c2l{float:left; width:670px; _width:651px;margin-right:8px;}
+.pathNav{height:36px;}
+.logo{display:inline-block; float:left; height:27px; width:108px; background-position:0 -64px;}
+.path{display:inline-block; height:27px; margin-left:6px; line-height:30px; width:auto;}
+
+.article{border:#c9d9e3 1px solid; overflow:hidden;text-justify:distribute; text-align:justify;}
+.article h1{font-size:26px;height:30px; text-align:center; margin-top:16px; color:#000;}
+.artInfo{height:26px; text-align:center; margin-top:10px; color:#000;}
+
+.artDetail{margin:12px 20px 2px 18px; line-height:26px; overflow:hidden;} .artDetail h3{margin-bottom:10px;}
+.artAd{float:left; overflow:hidden; margin:0 18px 8px 0; width:240px; height:280px;}
+.artDetail p{margin-bottom:12px;} .artDetail img{max-width:632px;}
+.artPage{height:26px; text-align:center; margin-top:6px; color:#000; font-size:16px; font-weight:700;} .artPage A{margin:0 10px;}
+
+.tags{margin:12px 0 16px 0; padding-left:8px; height:30px; line-height:32px; border:#c9d9e3 1px solid; overflow:hidden;} .tagItem{width:540px; float:left;}.tags a{margin-right:20px;}.comtUrl{float:right;}
+.correArt{width:350px; _width:330px; height:250px; margin-right:10px; float:left; overflow:hidden; border:#c9d9e3 1px solid;}
+.title{background:url(/images/art_bg.png) no-repeat; background-position:4px -304px; border-bottom:#c9d9e3 1px solid; height:30px; padding-left:26px; line-height:36px; overflow:hidden;}
+.ulList{margin-top:8px; line-height:24px; padding-left:6px;}
+.ulList li{background:url(/images/art_bg.png) no-repeat; background-position:0px -285px; padding-left:6px;}
+
+.ol{margin:3px 0 0 4px; background:url(/images/art_bg.png) no-repeat; background-position:2px 5px; line-height:24px; _padding-bottom:6px;} .ol li{padding-left:18px;}
+.ad30{width:300px; height:250px; overflow:hidden; position:relative;}
+
+.c2r{float:right; width:300px; _width:auto;}
+.rList{border:#c5d6f7 1px solid; width:auto; padding-bottom:4px;}.rList .ulList a{margin-right:2px; display:inline-block; width:234px}.rList .ulList span{color:#117eed;}.rtImg{text-align:center;border:#c9d9e3 1px solid; padding:6px;}
+
+.footer{text-align:center; line-height:26px; margin-top:10px; margin-bottom:25px; border-top:solid 1px #d3e0f8;}
+.footerNav{margin-top:8px;} .footerNav a{margin:0px 3px;}
+.copyright{font-family:Verdana,Arial,"宋体",sans-serif;}
+body,div,dl,dt,dd,ul,li,ol,h1,h2,h3,h4,h5,h6,span,form,fieldset,input,select,textarea,blockquote,pre,p,a{padding:0; margin:0;} ul,li,ol{list-style:none;} img{border:0px;} .clear{clear:both;}

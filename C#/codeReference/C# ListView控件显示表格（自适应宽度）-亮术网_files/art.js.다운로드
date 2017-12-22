@@ -1,0 +1,10 @@
+﻿var xmlhttp; function createXHR() { try { xmlhttp = new ActiveXObject('Msxml2.XMLHTTP'); } catch (e) { try { xmlhttp = new ActiveXObject('Microsoft.XMLHTTP'); } catch (e) { try { xmlhttp = new XMLHttpRequest(); } catch (e) { } } } }
+function getValue(obj) {createXHR(); var aid = request();xmlhttp.open("get", "/Controls/ArtiRight.aspx?aid=" + aid, true);
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4) {if (xmlhttp.status == 200) {if (xmlhttp.responseText != "") {$(obj).innerHTML = xmlhttp.responseText;}}}}
+    xmlhttp.setRequestHeader("If-Modified-Since", "0"); xmlhttp.send(null);}
+function request() {var strHref = document.location.toString(); var fn = strHref.substring(strHref.lastIndexOf("/") + 1, strHref.indexOf(".h"))
+    var pos = fn.indexOf("_");if (pos < 0) return fn; else {if (fn.substr(pos + 1) == "1") return fn.substring(0, pos);else return "";}
+} var $ = function (id) { return ("string" == typeof (id)) ? document.getElementById(id) : id; };
+function getAdTT() { document.write("<img src=\"/lsfile/ad/ad336.jpg\" />"); } function getAdTZ() { document.write("<img src=\"/lsfile/ad/ad300.jpg\" />"); }
+function toSearch(obj) { var k = $(obj).value; window.location.href = "/pub/tags.aspx?s=1&k=" + encodeURI(k); }

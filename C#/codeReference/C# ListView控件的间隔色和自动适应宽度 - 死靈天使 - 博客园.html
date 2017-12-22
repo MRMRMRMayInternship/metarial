@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)https://www.cnblogs.com/stephen-vv/archive/2011/12/08/2281318.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C# ListView控件的间隔色和自动适应宽度 - 死靈天使 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./C# ListView控件的间隔色和自动适应宽度 - 死靈天使 - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./C# ListView控件的间隔色和自动适应宽度 - 死靈天使 - 博客园_files/bundle-summerGarden.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./C# ListView控件的间隔色和自动适应宽度 - 死靈天使 - 博客园_files/bundle-summerGarden-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/stephen-vv/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/stephen-vv/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/stephen-vv/wlwmanifest.xml">
+<script async="" src="./C# ListView控件的间隔色和自动适应宽度 - 死靈天使 - 博客园_files/analytics.js.다운로드"></script><script src="./C# ListView控件的间隔色和自动适应宽度 - 死靈天使 - 博客园_files/jquery.js.다운로드" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'stephen-vv', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./C# ListView控件的间隔色和自动适应宽度 - 死靈天使 - 博客园_files/blog-common.js.다운로드" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/stephen-vv/"><img id="blogLogo" src="./C# ListView控件的间隔色和自动适应宽度 - 死靈天使 - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/stephen-vv/">死靈天使</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+	<li><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+	<li><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/stephen-vv/">首页</a></li>
+	<li><a href="http://news.cnblogs.com/">新闻</a></li>
+	<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+	<li><a id="blog_nav_contact" accesskey="9" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E6%AD%BB%E9%9D%88%E5%A4%A9%E4%BD%BF">联系</a></li>
+	<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+	<li><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/stephen-vv/rss">订阅</a>
+	<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/stephen-vv/rss"><img src="./C# ListView控件的间隔色和自动适应宽度 - 死靈天使 - 博客园_files/xml.gif" alt="订阅"></a></li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔- 24&nbsp;
+文章- 0&nbsp;
+评论- 2&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/stephen-vv/archive/2011/12/08/2281318.html">C# ListView控件的间隔色和自动适应宽度</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><h1 class="tit"><span style="font-size: 15px;">C# ListView控件的间隔色和自动适应宽度</span></h1>
+<table style="width: 100%; table-layout: fixed;">
+<tbody>
+<tr>
+<td>
+<div id="blog_text" class="cnt">
+<p><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 自动适应宽度只须设置列宽的值等于-1即可，另外，如果要调整每列的宽度为标题的宽度的话设置列宽的值等于-2即可，要注意一定要在ListView加载了数据之后再设置，要不然就没效果了，而且每次刷新数据后必须设置。至于间隔色就很简单了，在每行要加载数据的时候设置每行的背景色就搞定了，下面我写一个很很简单的例子：</span></p>
+<p><span style="font-size: 15px;">using System;</span><br><span style="font-size: 15px;">using System.Collections.Generic;</span><br><span style="font-size: 15px;">using System.ComponentModel;</span><br><span style="font-size: 15px;">using System.Data;</span><br><span style="font-size: 15px;">using System.Drawing;</span><br><span style="font-size: 15px;">using System.Linq;</span><br><span style="font-size: 15px;">using System.Text;</span><br><span style="font-size: 15px;">using System.Windows.Forms;</span></p>
+<p><span style="font-size: 15px;">namespace ReadWriteFile</span><br><span style="font-size: 15px;">{</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp; public partial class Form1 : Form</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp; {</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public Form1()</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; InitializeComponent();</span></p>
+<p><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ListViewItem lstItem = null;</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string stState = string.Empty;</span></p>
+<p><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //行和列是否显示网格线</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listView1.GridLines = true;</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //单选时,选择整行</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listView1.FullRowSelect = true;</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //显示方式</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listView1.View = View.Details;</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //没有足够的空间显示时,是否添加滚动条</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listView1.Scrollable = true;</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //是否可以选择多行</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listView1.MultiSelect = false;</span></p>
+<p><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listView1.Columns.Add("lstFileName", "文件名");</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listView1.Columns.Add("lstNoteBook", "工作薄");</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listView1.Columns.Add("lstArea", "区域");</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listView1.Columns.Add("lstState", "导入状态");</span></p>
+<p><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (int i = 0; i &lt; 12; i++)</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lstItem = new ListViewItem();</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (i % 2 == 0)</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lstItem.BackColor = Color.Green;</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stState = "成功";</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lstItem.BackColor = Color.Red;</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stState = "失败";</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lstItem.SubItems[0].Text = "《现代熟女故事》 ";</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lstItem.SubItems.Add("最初的炙热过后，感情渐渐变地像鸡肋。");</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lstItem.SubItems.Add("是守着属于自己的鸡肋还是冒险开始一段新感情？");</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lstItem.SubItems.Add(stState);</span></p>
+<p><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listView1.Items.Add(lstItem);</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></p>
+<p><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //自动适应宽度,-1根据内容设置宽度,-2根据标题设置宽度.</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listView1.Columns["lstFileName"].Width = -1;</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listView1.Columns["lstNoteBook"].Width = -1;</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listView1.Columns["lstArea"].Width = -1;</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listView1.Columns["lstState"].Width = -1;</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listView1.Columns["lstFileName"].Width = -2;</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listView1.Columns["lstNoteBook"].Width = -2;</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listView1.Columns["lstArea"].Width = -2;</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listView1.Columns["lstState"].Width = -2;</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span><br><span style="font-size: 15px;">&nbsp;&nbsp;&nbsp; }</span><br><span style="font-size: 15px;">}</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(2281318,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;3543c1f6-917c-e011-a53f-842b2b196315&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./C# ListView控件的间隔色和自动适应宽度 - 死靈天使 - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./C# ListView控件的间隔色和自动适应宽度 - 死靈天使 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/stephen-vv/" target="_blank"><img src="./C# ListView控件的间隔色和自动适应宽度 - 死靈天使 - 博客园_files/u299903.jpg" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/stephen-vv/">死靈天使</a><br>
+            <a href="http://home.cnblogs.com/u/stephen-vv/followees">关注 - 15</a><br>
+            <a href="http://home.cnblogs.com/u/stephen-vv/followers">粉丝 - 10</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;3543c1f6-917c-e011-a53f-842b2b196315&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(2281318,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(2281318,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/stephen-vv/archive/2011/10/24/xml.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/stephen-vv/archive/2011/10/24/xml.html" title="发布于2011-10-24 22:16">通过xml配置文件得到数据库信息</a><br><a href="http://www.cnblogs.com/stephen-vv/archive/2011/12/10/2283475.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/stephen-vv/archive/2011/12/10/2283475.html" title="发布于2011-12-10 19:01">Tomcat在Windows下的免安装配置</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2011-12-08 22:07</span> <a href="http://www.cnblogs.com/stephen-vv/">死靈天使</a> 阅读(<span id="post_view_count">8637</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=2281318" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/stephen-vv/archive/2011/12/08/2281318.html#" onclick="AddToWz(2281318);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=88974,cb_entryId=2281318,cb_blogApp=currentBlogApp,cb_blogUserGuid='3543c1f6-917c-e011-a53f-842b2b196315',cb_entryCreatedDate='2011/12/8 22:07:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/stephen-vv/archive/2011/12/08/2281318.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/stephen-vv/archive/2011/12/08/2281318.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="https://cloud.tencent.com/developer/support-plan?fromSource=gwzcw.710852.710852.710852" target="_blank">【推荐】加入腾讯云自媒体扶持计划，免费领取域名&amp;服务器</a><br><a href="http://click.aliyun.com/m/17164/" target="_blank">【推荐】高性能云服务器2折起，0.73元/日节省80%运维成本</a><br><a href="https://news.cnblogs.com/n/582971/" target="_blank">【新闻】H3 BPM体验平台全面上线</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="http://www.gcpowertools.com.cn/products/spreadjs/?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=SpreadJS2&amp;utm_campaign=community" target="_blank"><img width="300" height="250" src="./C# ListView控件的间隔色和自动适应宽度 - 死靈天使 - 博客园_files/24442-20171206093644566-325426505.png" alt="SpreadJS2_1206"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="https://news.cnblogs.com/n/585549/" target="_blank">乐信正式登陆纳斯达克 成分期电商第一股</a><br> ·  <a href="https://news.cnblogs.com/n/585539/" target="_blank">一文读懂分期电商赴美上市第一股乐信</a><br> ·  <a href="https://news.cnblogs.com/n/585546/" target="_blank">卡巴发现最恐怖安卓病毒：中招后电池膨胀手机壳撑裂</a><br> ·  <a href="https://news.cnblogs.com/n/585545/" target="_blank">银行业统一APP 云闪付充话费立减10元 每人5次</a><br> ·  <a href="https://news.cnblogs.com/n/585542/" target="_blank">喜大普奔！河南省高速全线支持支付宝：扫码还能领红包</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://click.aliyun.com/m/34770/" target="_blank"><img width="468" height="60" src="./C# ListView控件的间隔色和自动适应宽度 - 死靈天使 - 博客园_files/24442-20171208101900738-116140477.jpg" alt="阿里云C2-1208"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/585502/" target="_blank">步入云计算</a><br> ·  <a href="http://kb.cnblogs.com/page/531409/" target="_blank">以操作系统的角度述说线程与进程</a><br> ·  <a href="http://kb.cnblogs.com/page/141729/" target="_blank">软件测试转型之路</a><br> ·  <a href="http://kb.cnblogs.com/page/177402/" target="_blank">门内门外看招聘</a><br> ·  <a href="http://kb.cnblogs.com/page/112506/" target="_blank">大道至简，职场上做人做事做管理</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/stephen-vv/">死靈天使</a><br>园龄：<a href="http://home.cnblogs.com/u/stephen-vv/" title="入园时间：2011-05-12">6年7个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/stephen-vv/followers/">10</a><br>关注：<a href="http://home.cnblogs.com/u/stephen-vv/followees/">15</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;3543c1f6-917c-e011-a53f-842b2b196315&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2011/11/01&#39;);return false;">&lt;</a></td><td align="center">2011年12月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2012/01/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">27</td><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td align="center">1</td><td align="center">2</td><td class="CalWeekendDay" align="center">3</td></tr><tr><td class="CalWeekendDay" align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center"><a href="http://www.cnblogs.com/stephen-vv/archive/2011/12/08.html"><u>8</u></a></td><td align="center">9</td><td class="CalWeekendDay" align="center"><a href="http://www.cnblogs.com/stephen-vv/archive/2011/12/10.html"><u>10</u></a></td></tr><tr><td class="CalWeekendDay" align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td align="center">16</td><td class="CalWeekendDay" align="center">17</td></tr><tr><td class="CalWeekendDay" align="center">18</td><td align="center">19</td><td align="center">20</td><td align="center">21</td><td align="center">22</td><td align="center">23</td><td class="CalWeekendDay" align="center">24</td></tr><tr><td class="CalWeekendDay" align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td align="center">29</td><td align="center">30</td><td class="CalWeekendDay" align="center">31</td></tr><tr><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/stephen-vv/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/stephen-vv/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/stephen-vv/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/stephen-vv/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/stephen-vv/tag/" title="我的博客的标签列表">我的标签</a></li>
+<li><a id="itemListLink" onclick="this.blur();WarpClass(&#39;itemListLink&#39;, &#39;itemListLin_con&#39;);return false;" href="https://www.cnblogs.com/stephen-vv/archive/2011/12/08/2281318.html#">更多链接</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block">
+<div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/stephen-vv/tag/DEV/">DEV</a>(5)</li><li><a href="http://www.cnblogs.com/stephen-vv/tag/struts2/">struts2</a>(2)</li><li><a href="http://www.cnblogs.com/stephen-vv/tag/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>(2)</li><li><a href="http://www.cnblogs.com/stephen-vv/tag/%E6%95%B4%E5%90%88/">整合</a>(1)</li><li><a href="http://www.cnblogs.com/stephen-vv/tag/AJAX%E8%A7%A3%E6%9E%90XML%28JS%E4%BB%A3%E7%A0%81%29/">AJAX解析XML(JS代码)</a>(1)</li><li><a href="http://www.cnblogs.com/stephen-vv/tag/Css%E9%80%89%E6%8B%A9%E5%99%A8%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99/">Css选择器命名规则</a>(1)</li><li><a href="http://www.cnblogs.com/stephen-vv/tag/txt%E6%93%8D%E4%BD%9C/">txt操作</a>(1)</li><li><a href="http://www.cnblogs.com/stephen-vv/tag/%E5%AF%BC%E5%87%BAExcel/">导出Excel</a>(1)</li><li><a href="http://www.cnblogs.com/stephen-vv/tag/%E5%AF%BC%E5%87%BAWord/">导出Word</a>(1)</li><li><a href="http://www.cnblogs.com/stephen-vv/tag/get%E4%B8%8Epost%E7%9A%84%E5%8C%BA%E5%88%AB/">get与post的区别</a>(1)</li><li><a href="http://www.cnblogs.com/stephen-vv/tag/">更多</a></li>
+</ul>
+</div></div><div id="sidebar_categories">
+<div class="catListPostArchive">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/stephen-vv/archive/2014/04.html">2014年4月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/stephen-vv/archive/2012/12.html">2012年12月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/stephen-vv/archive/2012/07.html">2012年7月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/stephen-vv/archive/2012/06.html">2012年6月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/stephen-vv/archive/2012/04.html">2012年4月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="http://www.cnblogs.com/stephen-vv/archive/2012/03.html">2012年3月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="http://www.cnblogs.com/stephen-vv/archive/2012/02.html">2012年2月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="http://www.cnblogs.com/stephen-vv/archive/2011/12.html">2011年12月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="http://www.cnblogs.com/stephen-vv/archive/2011/10.html">2011年10月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_9" href="http://www.cnblogs.com/stephen-vv/archive/2011/09.html">2011年9月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_10" href="http://www.cnblogs.com/stephen-vv/archive/2011/08.html">2011年8月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_11" href="http://www.cnblogs.com/stephen-vv/archive/2011/05.html">2011年5月 (1)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/stephen-vv/archive/2012/12/18/2822891.html#3336598">1. Re:c#开发_Dev的关于XtraGrid的使用（GridControl小结）_Second</a></li>
+        <li class="recent_comment_body">colname colstyle textid int 只允许数字name String 普通birthday da......</li>
+        <li class="recent_comment_author">--路正书</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/stephen-vv/archive/2012/07/28/2612637.html#2436371">2. Re:sql server存储过程语法</a></li>
+        <li class="recent_comment_body">sql是一门很重要的课程，一定要学好它</li>
+        <li class="recent_comment_author">--死靈天使</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/stephen-vv/archive/2012/12/18/2822891.html">1. c#开发_Dev的关于XtraGrid的使用（GridControl小结）_Second(14862)</a></li><li><a href="http://www.cnblogs.com/stephen-vv/archive/2012/12/18/2822800.html">2. c#开发_Dev的关于XtraGrid的使用（GridControl小结）_First(12769)</a></li><li><a href="http://www.cnblogs.com/stephen-vv/archive/2012/12/18/2822685.html">3. c#开发_Dev的lookupedit绑定和获取值的方法(8651)</a></li><li><a href="http://www.cnblogs.com/stephen-vv/archive/2011/12/08/2281318.html">4. C# ListView控件的间隔色和自动适应宽度(8637)</a></li><li><a href="http://www.cnblogs.com/stephen-vv/archive/2012/04/19/PHP_Java.html">5. PHP和Java强强联合 PHP与Java集成开发详解(7553)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/stephen-vv/archive/2012/12/18/2822891.html">1. c#开发_Dev的关于XtraGrid的使用（GridControl小结）_Second(1)</a></li><li><a href="http://www.cnblogs.com/stephen-vv/archive/2012/07/28/2612637.html">2. sql server存储过程语法(1)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/stephen-vv/archive/2012/12/18/2822891.html">1. c#开发_Dev的关于XtraGrid的使用（GridControl小结）_Second(2)</a></li><li><a href="http://www.cnblogs.com/stephen-vv/archive/2012/12/18/2822800.html">2. c#开发_Dev的关于XtraGrid的使用（GridControl小结）_First(1)</a></li><li><a href="http://www.cnblogs.com/stephen-vv/archive/2011/08/30/Note.html">3. MVC笔记(1)</a></li><li><a href="http://www.cnblogs.com/stephen-vv/archive/2012/04/19/PHP_Java.html">4. PHP和Java强强联合 PHP与Java集成开发详解(1)</a></li><li><a href="http://www.cnblogs.com/stephen-vv/archive/2011/05/18/2050567.html">5. jsp打印，导出word/excel(1)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2017 死靈天使
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+</body></html>

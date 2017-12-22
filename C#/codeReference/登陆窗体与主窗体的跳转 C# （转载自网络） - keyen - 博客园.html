@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)https://www.cnblogs.com/zyj-keyen/archive/2012/06/19/2554287.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="same-origin">
+<title>登陆窗体与主窗体的跳转 C#    （转载自网络） - keyen - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./登陆窗体与主窗体的跳转 C# （转载自网络） - keyen - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./登陆窗体与主窗体的跳转 C# （转载自网络） - keyen - 博客园_files/bundle-summerGarden.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./登陆窗体与主窗体的跳转 C# （转载自网络） - keyen - 博客园_files/bundle-summerGarden-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/zyj-keyen/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/zyj-keyen/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/zyj-keyen/wlwmanifest.xml">
+<script async="" src="./登陆窗体与主窗体的跳转 C# （转载自网络） - keyen - 博客园_files/analytics.js.다운로드"></script><script src="./登陆窗体与主窗体的跳转 C# （转载自网络） - keyen - 博客园_files/jquery.js.다운로드" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'zyj-keyen', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./登陆窗体与主窗体的跳转 C# （转载自网络） - keyen - 博客园_files/blog-common.js.다운로드" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/zyj-keyen/"><img id="blogLogo" src="./登陆窗体与主窗体的跳转 C# （转载自网络） - keyen - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/zyj-keyen/">keyen</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+	<li><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+	<li><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/zyj-keyen/">首页</a></li>
+	<li><a href="http://news.cnblogs.com/">新闻</a></li>
+	<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+	<li><a id="blog_nav_contact" accesskey="9" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/keyen">联系</a></li>
+	<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+	<li><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/zyj-keyen/rss">订阅</a>
+	<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/zyj-keyen/rss"><img src="./登陆窗体与主窗体的跳转 C# （转载自网络） - keyen - 博客园_files/xml.gif" alt="订阅"></a></li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔- 13&nbsp;
+文章- 0&nbsp;
+评论- 5&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/zyj-keyen/archive/2012/06/19/2554287.html">登陆窗体与主窗体的跳转 C#    （转载自网络）</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><div class="tit">登陆窗体与主窗体的跳转 C#</div>
+<div class="date">2011-08-30 19:53</div>
+<table style="width: 100%; table-layout: fixed;">
+<tbody>
+<tr>
+<td>
+<div id="blog_text" class="cnt">
+<p style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在做winform登录窗体的时候，一开始不了解winform编程犯过一个小错误，把登录窗体在程序入口的时候做成了语法上的主窗体，导致了登录窗体到主窗体的跳转不合理；虽然可以在主窗体的FormClosing事件用Application.Exit()实现大概相似的功能，但是咱程序员可不能想当然的解决问题，加之Application.Exit()据说太过于粗鲁，能少用则少用&lt;听说而已，虽然不理解具体为什么&gt;，自然我们就应该用更符合逻辑的方式来解决；</p>
+<p style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 解决方法也很简单，将程序入口的主窗体显示改成我们逻辑上真正的主窗体就行了，只要在之前ShowDialog出登录窗体，并根据登录窗体的DialogResult返回值来判断是否成功登录；</p>
+<p style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 程序入口代码：</p>
+<p style="text-align: left;"><span><img src="./登陆窗体与主窗体的跳转 C# （转载自网络） - keyen - 博客园_files/9b036df6fd41014e720eecc6.jpg" alt=""></span></p>
+<p style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 登录窗体登录按钮关键代码：</p>
+<p style="text-align: left;"><span><span><img src="./登陆窗体与主窗体的跳转 C# （转载自网络） - keyen - 博客园_files/7dcc6cfb3020bffb59ee90c8.jpg" alt=""></span><br><br></span></p>
+<p style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 当然如果有写窗体关闭提示是否关闭的话，为了防止成功登录以后还有弹窗提示，所以再在窗体关闭时事件的委托方法里加上一个判断：</p>
+<p style="text-align: left;"><span><img src="./登陆窗体与主窗体的跳转 C# （转载自网络） - keyen - 博客园_files/133bf91742b3363df3de32bc.jpg" alt=""></span></p>
+<p style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp; 诶，就这么几句代码就使程序变得更加的合理了；<br><br></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag">标签: <a href="http://www.cnblogs.com/zyj-keyen/tag/%E7%99%BB%E9%99%86%E7%AA%97%E4%BD%93/">登陆窗体</a>, <a href="http://www.cnblogs.com/zyj-keyen/tag/%E4%B8%BB%E7%AA%97%E4%BD%93/">主窗体</a>, <a href="http://www.cnblogs.com/zyj-keyen/tag/%E8%B7%B3%E8%BD%AC%20C%23/">跳转 C#</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(2554287,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;820cb15e-9b39-e111-b988-842b2b196315&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./登陆窗体与主窗体的跳转 C# （转载自网络） - keyen - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./登陆窗体与主窗体的跳转 C# （转载自网络） - keyen - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/zyj-keyen/" target="_blank"><img src="./登陆窗体与主窗体的跳转 C# （转载自网络） - keyen - 博客园_files/sample_face.gif" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/zyj-keyen/">keyen</a><br>
+            <a href="http://home.cnblogs.com/u/zyj-keyen/followees">关注 - 1</a><br>
+            <a href="http://home.cnblogs.com/u/zyj-keyen/followers">粉丝 - 2</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;820cb15e-9b39-e111-b988-842b2b196315&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(2554287,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(2554287,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/zyj-keyen/archive/2012/06/19/2554237.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/zyj-keyen/archive/2012/06/19/2554237.html" title="发布于2012-06-19 09:00">C#窗体的重要属性(初学者)转载自--九五二七的博客园</a><br><a href="http://www.cnblogs.com/zyj-keyen/archive/2012/06/19/2554668.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/zyj-keyen/archive/2012/06/19/2554668.html" title="发布于2012-06-19 13:28">C# 中的 App.config 文件配置</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2012-06-19 09:19</span> <a href="http://www.cnblogs.com/zyj-keyen/">keyen</a> 阅读(<span id="post_view_count">3616</span>) 评论(<span id="post_comment_count">3</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=2554287" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/zyj-keyen/archive/2012/06/19/2554287.html#" onclick="AddToWz(2554287);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=119380,cb_entryId=2554287,cb_blogApp=currentBlogApp,cb_blogUserGuid='820cb15e-9b39-e111-b988-842b2b196315',cb_entryCreatedDate='2012/6/19 9:19:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<!--done-->
+<br>
+<div class="feedback_area_title">发表评论</div>
+<div class="feedbackNoItems"></div>
+	
+
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/zyj-keyen/archive/2012/06/19/2554287.html#2489303" class="layer">#1楼</a><a name="2489303" id="comment_anchor_2489303"></a> <span class="comment_date">2012-10-09 15:35</span> | <a id="a_comment_author_2489303" href="http://home.cnblogs.com/u/318357/" target="_blank">小妤</a> <a href="http://msg.cnblogs.com/send/%E5%B0%8F%E5%A6%A4" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2489303" class="blog_comment_body">这个图片都没法看。。。。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2489303,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2489303,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/zyj-keyen/archive/2012/06/19/2554287.html#2639409" class="layer">#2楼</a><a name="2639409" id="comment_anchor_2639409"></a> <span class="comment_date">2013-03-21 11:14</span> | <a id="a_comment_author_2639409" href="http://home.cnblogs.com/u/507357/" target="_blank">liuh2_liandi2</a> <a href="http://msg.cnblogs.com/send/liuh2_liandi2" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2639409" class="blog_comment_body">111</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2639409,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2639409,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/zyj-keyen/archive/2012/06/19/2554287.html#3045314" class="layer">#3楼</a><a name="3045314" id="comment_anchor_3045314"></a><span id="comment-maxId" style="display:none;">3045314</span><span id="comment-maxDate" style="display:none;">2014/10/16 21:30:07</span> <span class="comment_date">2014-10-16 21:30</span> | <a id="a_comment_author_3045314" href="http://home.cnblogs.com/u/682367/" target="_blank">mirob</a> <a href="http://msg.cnblogs.com/send/mirob" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3045314" class="blog_comment_body">请问图片怎么看?</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3045314,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3045314,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+			</div>
+		</div>
+	<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/zyj-keyen/archive/2012/06/19/2554287.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/zyj-keyen/archive/2012/06/19/2554287.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="https://cloud.tencent.com/developer/support-plan?fromSource=gwzcw.710852.710852.710852" target="_blank">【推荐】加入腾讯云自媒体扶持计划，免费领取域名&amp;服务器</a><br><a href="http://click.aliyun.com/m/17164/" target="_blank">【推荐】高性能云服务器2折起，0.73元/日节省80%运维成本</a><br><a href="https://news.cnblogs.com/n/582971/" target="_blank">【新闻】H3 BPM体验平台全面上线</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="http://www.gcpowertools.com.cn/products/spreadjs/?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=SpreadJS1&amp;utm_campaign=community" target="_blank"><img width="300" height="250" src="./登陆窗体与主窗体的跳转 C# （转载自网络） - keyen - 博客园_files/24442-20171206093519659-1752333525.png" alt="SpreadJS_1206"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="https://news.cnblogs.com/n/585594/" target="_blank">石墨烯防弹衣能挡子弹</a><br> ·  <a href="https://news.cnblogs.com/n/585593/" target="_blank">曝刘强东内部讲话：马云骗人这么多年 我都替他丢人</a><br> ·  <a href="https://news.cnblogs.com/n/585592/" target="_blank">百度门前是非多：那些被百度“追杀”的高管们</a><br> ·  <a href="https://news.cnblogs.com/n/585591/" target="_blank">我是做业务的，计算机理论有什么用？</a><br> ·  <a href="https://news.cnblogs.com/n/585590/" target="_blank">Office 2016新预览版发布：Excel新增基于AI的Insights功能</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://click.aliyun.com/m/34770/" target="_blank"><img width="468" height="60" src="./登陆窗体与主窗体的跳转 C# （转载自网络） - keyen - 博客园_files/24442-20171208101900738-116140477.jpg" alt="阿里云C2-1208"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/585502/" target="_blank">步入云计算</a><br> ·  <a href="http://kb.cnblogs.com/page/531409/" target="_blank">以操作系统的角度述说线程与进程</a><br> ·  <a href="http://kb.cnblogs.com/page/141729/" target="_blank">软件测试转型之路</a><br> ·  <a href="http://kb.cnblogs.com/page/177402/" target="_blank">门内门外看招聘</a><br> ·  <a href="http://kb.cnblogs.com/page/112506/" target="_blank">大道至简，职场上做人做事做管理</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/zyj-keyen/">keyen</a><br>园龄：<a href="http://home.cnblogs.com/u/zyj-keyen/" title="入园时间：2012-01-08">5年11个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/zyj-keyen/followers/">2</a><br>关注：<a href="http://home.cnblogs.com/u/zyj-keyen/followees/">1</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;820cb15e-9b39-e111-b988-842b2b196315&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2012/05/01&#39;);return false;">&lt;</a></td><td align="center">2012年6月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2012/07/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">27</td><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td align="center">1</td><td class="CalWeekendDay" align="center">2</td></tr><tr><td class="CalWeekendDay" align="center">3</td><td align="center">4</td><td align="center"><a href="http://www.cnblogs.com/zyj-keyen/archive/2012/06/05.html"><u>5</u></a></td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td class="CalWeekendDay" align="center">9</td></tr><tr><td class="CalWeekendDay" align="center">10</td><td align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td class="CalWeekendDay" align="center">16</td></tr><tr><td class="CalWeekendDay" align="center">17</td><td align="center">18</td><td align="center"><a href="http://www.cnblogs.com/zyj-keyen/archive/2012/06/19.html"><u>19</u></a></td><td align="center"><a href="http://www.cnblogs.com/zyj-keyen/archive/2012/06/20.html"><u>20</u></a></td><td align="center">21</td><td align="center">22</td><td class="CalWeekendDay" align="center">23</td></tr><tr><td class="CalWeekendDay" align="center">24</td><td align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td align="center">29</td><td class="CalWeekendDay" align="center">30</td></tr><tr><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/zyj-keyen/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/zyj-keyen/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/zyj-keyen/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/zyj-keyen/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/zyj-keyen/tag/" title="我的博客的标签列表">我的标签</a></li>
+<li><a id="itemListLink" onclick="this.blur();WarpClass(&#39;itemListLink&#39;, &#39;itemListLin_con&#39;);return false;" href="https://www.cnblogs.com/zyj-keyen/archive/2012/06/19/2554287.html#">更多链接</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block">
+<div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/zyj-keyen/tag/c%23/">c#</a>(10)</li><li><a href="http://www.cnblogs.com/zyj-keyen/tag/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">配置文件</a>(2)</li><li><a href="http://www.cnblogs.com/zyj-keyen/tag/%E5%8A%A0%E5%AF%86/">加密</a>(2)</li><li><a href="http://www.cnblogs.com/zyj-keyen/tag/%E8%A7%A3%E5%AF%86/">解密</a>(2)</li><li><a href="http://www.cnblogs.com/zyj-keyen/tag/.net/">.net</a>(2)</li><li><a href="http://www.cnblogs.com/zyj-keyen/tag/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>(2)</li><li><a href="http://www.cnblogs.com/zyj-keyen/tag/ADO.NET%E7%9A%84%E4%BD%BF%E7%94%A8/">ADO.NET的使用</a>(1)</li><li><a href="http://www.cnblogs.com/zyj-keyen/tag/appconfig/">appconfig</a>(1)</li><li><a href="http://www.cnblogs.com/zyj-keyen/tag/%E8%BF%9B%E7%A8%8B/">进程</a>(1)</li><li><a href="http://www.cnblogs.com/zyj-keyen/tag/%E6%8E%A7%E4%BB%B6%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/">控件命名规范</a>(1)</li><li><a href="http://www.cnblogs.com/zyj-keyen/tag/">更多</a></li>
+</ul>
+</div></div><div id="sidebar_categories">
+<div class="catListPostArchive">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/zyj-keyen/archive/2016/09.html">2016年9月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/zyj-keyen/archive/2012/07.html">2012年7月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/zyj-keyen/archive/2012/06.html">2012年6月 (6)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/zyj-keyen/archive/2012/07/26/2610065.html#3442688">1. Re:[C#] 连接数据库并验证用户名和密码</a></li>
+        <li class="recent_comment_body">为什么密码不能做为参数放在SQL里</li>
+        <li class="recent_comment_author">--绝版色狼</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/zyj-keyen/archive/2012/06/19/2554287.html#3045314">2. Re:登陆窗体与主窗体的跳转 C#    （转载自网络）</a></li>
+        <li class="recent_comment_body">请问图片怎么看?</li>
+        <li class="recent_comment_author">--mirob</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/zyj-keyen/archive/2012/06/19/2554287.html#2639409">3. Re:登陆窗体与主窗体的跳转 C#    （转载自网络）</a></li>
+        <li class="recent_comment_body">111</li>
+        <li class="recent_comment_author">--liuh2_liandi2</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/zyj-keyen/archive/2012/06/05/2536545.html#2631229">4. Re:Console.Read方法应用示例-字符/字符串</a></li>
+        <li class="recent_comment_body">Console.Read();<br><br><br>Console.ReadLine();</li>
+        <li class="recent_comment_author">--Quietly elegant</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/zyj-keyen/archive/2012/06/19/2554287.html#2489303">5. Re:登陆窗体与主窗体的跳转 C#    （转载自网络）</a></li>
+        <li class="recent_comment_body">这个图片都没法看。。。。</li>
+        <li class="recent_comment_author">--小妤</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/zyj-keyen/archive/2012/07/26/2610065.html">1. [C#] 连接数据库并验证用户名和密码(18842)</a></li><li><a href="http://www.cnblogs.com/zyj-keyen/archive/2012/06/19/2554668.html">2. C# 中的 App.config 文件配置(6947)</a></li><li><a href="http://www.cnblogs.com/zyj-keyen/archive/2012/06/19/2554287.html">3. 登陆窗体与主窗体的跳转 C#    （转载自网络）(3616)</a></li><li><a href="http://www.cnblogs.com/zyj-keyen/archive/2012/07/26/2609885.html">4. 如何用c#读写配置文件 转载自网络(2109)</a></li><li><a href="http://www.cnblogs.com/zyj-keyen/archive/2012/06/19/2554237.html">5. C#窗体的重要属性(初学者)转载自--九五二七的博客园(720)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/zyj-keyen/archive/2012/06/19/2554287.html">1. 登陆窗体与主窗体的跳转 C#    （转载自网络）(3)</a></li><li><a href="http://www.cnblogs.com/zyj-keyen/archive/2012/07/26/2610065.html">2. [C#] 连接数据库并验证用户名和密码(1)</a></li><li><a href="http://www.cnblogs.com/zyj-keyen/archive/2012/06/05/2536545.html">3. Console.Read方法应用示例-字符/字符串(1)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/zyj-keyen/archive/2012/07/26/2610065.html">1. [C#] 连接数据库并验证用户名和密码(2)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2017 keyen
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+</body></html>

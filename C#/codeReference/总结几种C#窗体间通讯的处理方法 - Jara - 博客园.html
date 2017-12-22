@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://www.cnblogs.com/jara/p/3439603.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/tctip.min.js.다운로드"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>总结几种C#窗体间通讯的处理方法 - Jara - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/bundle-ThinkInside.css">
+<link type="text/css" rel="stylesheet" href="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/164255.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/bundle-ThinkInside-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/jara/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/jara/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/jara/wlwmanifest.xml">
+<script async="" src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/analytics.js.다운로드"></script><script type="text/javascript" src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/encoder.js.다운로드"></script><script src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/jquery.js.다운로드" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'jara', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/blog-common.js.다운로드" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/jara/"><img id="blogLogo" src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/jara/">jara</a></h1>
+<h2>知人者智，自知者明，胜人者有力，自胜者强！！！</h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/jara/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/Jara">联系</a></li>
+<li><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/jara/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/jara/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<span id="stats_post_count">随笔 - 120&nbsp; </span>
+<span id="stats_article_count">文章 - 1&nbsp; </span>
+<span id="stats-comment_count">评论 - 438</span>
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/jara/p/3439603.html">总结几种C#窗体间通讯的处理方法</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><p><span style="color: #ff0000;">摘要：</span><span style="color: #0000ff;">本文介绍了C#窗体间通讯的几种处理方法，即传值、继承、事件回调，希望对大家有用。</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 应用程序开发中，经常需要多窗体之间进行数据通信，写几个例子，把几种常用的通信方式总结一下：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 主窗体Form1是一个ListBox，单击选中某列时，弹出窗体Form2，Form2中两个控件，一个是TextBox，显示选中的该列的文本，另一个是按钮，点击时将修改后的值回传，且在Form1中修改相应的列的文本，同时Form2关闭。</p>
+<p><strong>&nbsp;C#窗体间通讯方法一：传值</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 最先想到的，Form2构造函数中接收一个string类型参数，即Form1中选中行的文本，将Form2的TextBox控件的Text设置为该string，即完成了Form1向Form2的传值。当Form2的AcceptChange按钮按下，需要修改Form1中ListBox中相应列的值，因此可以考虑同时将Form1中的ListBox控件当参数也传入Form2，所有修改工作都在Form2中完成，根据这个思路，Form2代码如下：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>publicpartial <span style="color: #0000ff;">class</span><span style="color: #000000;"> Form2 : Form     
+    {     
+        </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">string</span><span style="color: #000000;"> text;     
+        </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> ListBox lb;     
+        </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> index;     
+    
+       </span><span style="color: #008000;">//</span><span style="color: #008000;">构造函数接收三个参数：选中行文本，ListBox控件，选中行索引     </span>
+        <span style="color: #0000ff;">public</span> Form2(<span style="color: #0000ff;">string</span> text,ListBox lb,<span style="color: #0000ff;">int</span><span style="color: #000000;"> index)     
+        {     
+            </span><span style="color: #0000ff;">this</span>.text =<span style="color: #000000;"> text;     
+            </span><span style="color: #0000ff;">this</span>.lb =<span style="color: #000000;"> lb;     
+            </span><span style="color: #0000ff;">this</span>.index =<span style="color: #000000;"> index;     
+            InitializeComponent();     
+            </span><span style="color: #0000ff;">this</span>.textBox1.Text =<span style="color: #000000;"> text;     
+        }     
+    
+        </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span> btnChange_Click(<span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, EventArgs e)     
+        {                
+            </span><span style="color: #0000ff;">string</span> text = <span style="color: #0000ff;">this</span><span style="color: #000000;">.textBox1.Text;     
+            </span><span style="color: #0000ff;">this</span><span style="color: #000000;">.lb.Items.RemoveAt(index);     
+            </span><span style="color: #0000ff;">this</span><span style="color: #000000;">.lb.Items.Insert(index, text);     
+            </span><span style="color: #0000ff;">this</span><span style="color: #000000;">.Close();     
+        }     
+    }   </span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>Form1中new窗体2时这么写：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">partial</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Form1 :Form     
+    {     
+        </span><span style="color: #0000ff;">int</span> index = <span style="color: #800080;">0</span><span style="color: #000000;">;     
+        </span><span style="color: #0000ff;">string</span> text = <span style="color: #0000ff;">null</span><span style="color: #000000;">;     
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> Form1()     
+        {     
+            InitializeComponent();     
+        }     
+    
+        </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span> listBox1_SelectedIndexChanged(<span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, EventArgse)     
+        {                 
+            </span><span style="color: #0000ff;">if</span> (<span style="color: #0000ff;">this</span>.listBox1.SelectedItem != <span style="color: #0000ff;">null</span><span style="color: #000000;">)     
+            {     
+                text </span>= <span style="color: #0000ff;">this</span><span style="color: #000000;">.listBox1.SelectedItem.ToString();     
+                index </span>= <span style="color: #0000ff;">this</span><span style="color: #000000;">.listBox1.SelectedIndex;     
+    
+               </span><span style="color: #008000;">//</span><span style="color: #008000;">构造Form2同时传递参数     </span>
+                Form2 form2 = <span style="color: #0000ff;">new</span><span style="color: #000000;"> Form2(text, listBox1, index);     
+                form2.ShowDialog();     
+            }     
+       }   </span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; OK，方法一的解决方法就是这样，好处是直观，需要什么就传什么，缺点也是显而易见的，如果窗体1中需要修改的是一百个控件，难道构造的时候还传100个参数进去？况且如果其他窗体仍然需要弹Form2，那Form2就废了，只能供窗体1使用，除非写重载的构造函数，不利于代码的复用，继续看下一个方法。</p>
+<p><strong>&nbsp;C#窗体间通讯方法二：继承</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 这个方法我试了很多次，继承的确可以做，但是麻烦不说，还不方便，因此个人认为如果为了互相操作数据而使用继承，是不合适的，但既然是个方法，就扔出来看看，实际作用≈0。</p>
+<p><strong>Form2:&nbsp;</strong></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">声明Form2继承于Form1         </span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">partial</span><span style="color: #000000;"> classForm2 : Form1     
+    {     
+        publicint index;     
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> ListBox lb;     
+        </span><span style="color: #0000ff;">public</span> Form2(<span style="color: #0000ff;">string</span><span style="color: #000000;"> text)     
+        {       
+           </span><span style="color: #008000;">//</span><span style="color: #008000;">将继承过来的listBox设置为不可见     </span>
+            <span style="color: #0000ff;">this</span>.listBox1.Visible=<span style="color: #0000ff;">false</span><span style="color: #000000;">;     
+            InitializeComponent();     
+            </span><span style="color: #0000ff;">this</span>.textBox1.Text =<span style="color: #000000;"> text;     
+        }     
+
+        </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span> btnChange_Click(<span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, EventArgs e)     
+        {     
+            </span><span style="color: #0000ff;">string</span> text = <span style="color: #0000ff;">this</span><span style="color: #000000;">.textBox1.Text;     
+            </span><span style="color: #0000ff;">this</span><span style="color: #000000;">.lb.Items.RemoveAt(index);     
+            </span><span style="color: #0000ff;">this</span><span style="color: #000000;">.lb.Items.Insert(index,text);              
+            </span><span style="color: #0000ff;">this</span><span style="color: #000000;">.Close();     
+        }     
+   }   </span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><strong>Form1:</strong></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">partial</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Form1 :Form     
+    {     
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span> index = <span style="color: #800080;">0</span><span style="color: #000000;">;     
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> text = <span style="color: #0000ff;">null</span><span style="color: #000000;">;     
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> Form1()     
+        {     
+            InitializeComponent();     
+        }     
+    
+        </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span> listBox1_SelectedIndexChanged(<span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, EventArgse)     
+        {     
+            </span><span style="color: #0000ff;">if</span> (<span style="color: #0000ff;">this</span>.listBox1.SelectedItem != <span style="color: #0000ff;">null</span><span style="color: #000000;">)     
+            {     
+                text </span>= <span style="color: #0000ff;">this</span><span style="color: #000000;">.listBox1.SelectedItem.ToString();     
+                index </span>= <span style="color: #0000ff;">this</span><span style="color: #000000;">.listBox1.SelectedIndex;     
+                Form2 form2 </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Form2(text);     
+    
+               </span><span style="color: #008000;">//</span><span style="color: #008000;">构造完Form2后，为Form2中各参数赋值     </span>
+               form2.lb =<span style="color: #0000ff;">this</span><span style="color: #000000;">.listBox1;                    
+                form2.index </span>=<span style="color: #000000;"> index;     
+               form2.Show();     
+           }     
+        }     
+   }  </span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这里有几点问题需要注意，Form2中各属性需要哪种赋值方法？从Java过度来的都知道，Java继承中在子类中使用关键字super可以访问基类中公有的方法及参数，而C#中super换成了base,那是不是意味着我们可以在Form2中这么为参数赋值呢？</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">this</span>.lb=<span style="color: #0000ff;">base</span><span style="color: #000000;">.listBox1;     
+</span><span style="color: #0000ff;">this</span>.index=<span style="color: #0000ff;">base</span>.index;    </pre>
+</div>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OK,第二种写法没问题，可以保存index值,但是对ListBox控件，这么赋值就会出问题，通过测试我发现，base.listBox1指向的，是子类继承过来的listBox1对象，并不是基类自己的listBox1对象。因此我们猜测，那base.index值是不是也是指向子类的index呢？测试一下发现的确是这样，因此this.index=base.index等于没写，去掉照样可以用，因为index一样被Form2继承过来了，因此我们可以了解到，C#中的窗体继承，通过base.控件是无法操作基类控件的。</p>
+<p><strong>C#窗体间通讯方法三：事件回调</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 既然C#有事件这个东西，为啥不用呢，而且事件在窗体通信方面，有着更为方便的作用，我们知道事件实际上就是状态的捕获，在最后我会举一个捕获状态的例子，先看数据互相操作的例子。</p>
+<p><strong>Form2：</strong></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">定义一个需要string类型参数的委托         </span>
+publicdelegate <span style="color: #0000ff;">void</span> MyDelegate(<span style="color: #0000ff;">string</span><span style="color: #000000;"> text);         
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">partial</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Form2 :Form1     
+    {         
+       </span><span style="color: #008000;">//</span><span style="color: #008000;">定义该委托的事件     </span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">event</span><span style="color: #000000;"> MyDelegate MyEvent;     
+        </span><span style="color: #0000ff;">public</span> Form2(<span style="color: #0000ff;">string</span><span style="color: #000000;"> text)     
+        {      
+            InitializeComponent();     
+            </span><span style="color: #0000ff;">this</span>.textBox1.Text =<span style="color: #000000;"> text;     
+       }     
+       </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span> btnChange_Click(<span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, EventArgs e)                   
+       {     
+
+           </span><span style="color: #008000;">//</span><span style="color: #008000;">触发事件，并将修改后的文本回传     </span>
+           MyEvent(<span style="color: #0000ff;">this</span><span style="color: #000000;">.textBox1.Text);     
+           </span><span style="color: #0000ff;">this</span><span style="color: #000000;">.Close();     
+        }     
+   }   </span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><strong>Form1:&nbsp;</strong></p>
+<p>&nbsp;</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">partial</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Form1 :Form     
+    {     
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">int</span> index = <span style="color: #800080;">0</span><span style="color: #000000;">;     
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">string</span> text = <span style="color: #0000ff;">null</span><span style="color: #000000;">;     
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> Form1()     
+        {     
+            InitializeComponent();     
+        }     
+    
+        </span><span style="color: #0000ff;">private</span> <span style="color: #0000ff;">void</span> listBox1_SelectedIndexChanged(<span style="color: #0000ff;">object</span><span style="color: #000000;"> sender, EventArgse)     
+        {     
+            </span><span style="color: #0000ff;">if</span> (<span style="color: #0000ff;">this</span>.listBox1.SelectedItem != <span style="color: #0000ff;">null</span><span style="color: #000000;">)     
+            {     
+                text </span>= <span style="color: #0000ff;">this</span><span style="color: #000000;">.listBox1.SelectedItem.ToString();     
+                index </span>= <span style="color: #0000ff;">this</span><span style="color: #000000;">.listBox1.SelectedIndex;     
+                Form2 form2 </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Form2(text);     
+    
+               </span><span style="color: #008000;">//</span><span style="color: #008000;">注册form2_MyEvent方法的MyEvent事件     </span>
+                form2.MyEvent += <span style="color: #0000ff;">new</span><span style="color: #000000;"> MyDelegate(form2_MyEvent);     
+                form2.Show();     
+            }     
+        }     
+    
+       </span><span style="color: #008000;">//</span><span style="color: #008000;">处理     </span>
+    
+        <span style="color: #0000ff;">void</span> form2_MyEvent(<span style="color: #0000ff;">string</span><span style="color: #000000;"> text)     
+        {     
+            </span><span style="color: #0000ff;">this</span><span style="color: #000000;">.listBox1.Items.RemoveAt(index);     
+            </span><span style="color: #0000ff;">this</span><span style="color: #000000;">.listBox1.Items.Insert(index, text);     
+       }     
+   }   </span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 可以看出，使用事件做是很方便的，并且不需要传递那么多参数，不需要有继承关系，且提高了代码重用，因此在一般的需求下，建议这么使用。</p></div><div id="MySignature" style="display: block;"><p style="background:#C0FFFF; padding: 1px; border: 1px dashed #E0E0E0;font:100% 微软雅黑;color:#F00;text-align:left;"><br>个人主要研究：金融系统、MIS系统、人力资源管理系统、数据采集系统、权限管理系统等等系统。主攻C#开发语言，Oracle、Sql Server,WCF和Remoting通信。 
+<br>如需联系可加QQ：442389681 Email：lxc880615@163.com 手机：18922735098
+<br>QQ群交流：186841119 (请注明来自博客园)
+<br>博客园地址：<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/jara/">http://www.cnblogs.com/jara/ </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="cb_post_title_url1" class="postTitle3" href="http://www.cnblogs.com/luoyuhao/">http://www.cnblogs.com/luoyuhao/ </a><br>提示：本文版权归作者和博客园共有，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文连接，否则保留追究法律责任的权利。<br>如果觉得还有帮助的话，可以点一下右下角的【推荐】，希望能够持续的为大家带来好的技术文章！想跟我一起进步么？那就【关注】我吧。<br>如果对文章有任何问题，都可以在评论中留言，我会尽可能的答复您，谢谢您的阅读</p></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag">标签: <a href="http://www.cnblogs.com/jara/tag/C%23/">C#</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(3439603,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;32cb0d90-daf5-df11-ac81-842b2b196315&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/jara/" target="_blank"><img src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/20161001105959.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/jara/">Jara</a><br>
+            <a href="http://home.cnblogs.com/u/jara/followees">关注 - 15</a><br>
+            <a href="http://home.cnblogs.com/u/jara/followers">粉丝 - 140</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;32cb0d90-daf5-df11-ac81-842b2b196315&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(3439603,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">6</span>
+    </div>
+    <div class="buryit" onclick="votePost(3439603,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">1</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/jara/p/3432397.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/jara/p/3432397.html" title="发布于2013-11-19 22:18">C#:手把手教你用C#打包应用程序(安装程序卸载程序)</a><br><a href="http://www.cnblogs.com/jara/p/3450493.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/jara/p/3450493.html" title="发布于2013-11-29 23:45">C#接口总结</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2013-11-23 23:25</span> <a href="http://www.cnblogs.com/jara/">Jara</a> 阅读(<span id="post_view_count">3420</span>) 评论(<span id="post_comment_count">23</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=3439603" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/jara/p/3439603.html#" onclick="AddToWz(3439603);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=164255,cb_entryId=3439603,cb_blogApp=currentBlogApp,cb_blogUserGuid='32cb0d90-daf5-df11-ac81-842b2b196315',cb_entryCreatedDate='2013/11/23 23:25:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<br>
+<div class="feedback_area_title">评论列表</div>
+<div class="feedbackNoItems"></div>	
+
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2822905" class="layer">#1楼</a><a name="2822905" id="comment_anchor_2822905"></a>  <span class="comment_date">2013-11-23 23:51</span> <a id="a_comment_author_2822905" href="http://www.cnblogs.com/Sunnychenjuan/" target="_blank">sunnychenjuan</a> <a href="http://msg.cnblogs.com/send/sunnychenjuan" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2822905" class="blog_comment_body">支持！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2822905,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2822905,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2822927" class="layer">#2楼</a><a name="2822927" id="comment_anchor_2822927"></a>  <span class="comment_date">2013-11-24 02:31</span> <a id="a_comment_author_2822927" href="http://www.cnblogs.com/Chinese-xu/" target="_blank">徐少侠</a> <a href="http://msg.cnblogs.com/send/%E5%BE%90%E5%B0%91%E4%BE%A0" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2822927" class="blog_comment_body">前两个本质是错误的方法<br>最后一个理论上是对的<br>但是实际上没有遵守微软的事件调用约定<br>多少年了，大家还在为窗体间传值纠结么？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2822927,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2822927,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2822930" class="layer">#3楼</a><a name="2822930" id="comment_anchor_2822930"></a>  <span class="comment_date">2013-11-24 02:37</span> <a id="a_comment_author_2822930" href="http://www.cnblogs.com/Chinese-xu/" target="_blank">徐少侠</a> <a href="http://msg.cnblogs.com/send/%E5%BE%90%E5%B0%91%E4%BE%A0" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2822930" class="blog_comment_body">从Java过度来的都知道，Java继承中在子类中使用关键字super可以访问基类中公有的方法及参数<br>C#同样可以<br>楼主这里发现的不可以，用Java一样不可以。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2822930,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2822930,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2822987" class="layer">#4楼</a><a name="2822987" id="comment_anchor_2822987"></a>  <span class="comment_date">2013-11-24 11:50</span> <a id="a_comment_author_2822987" href="http://www.cnblogs.com/lilei_new/" target="_blank">江湖海</a> <a href="http://msg.cnblogs.com/send/%E6%B1%9F%E6%B9%96%E6%B5%B7" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2822987" class="blog_comment_body">第3个方法中的Form2继承Form1吗?</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2822987,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2822987,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2822987_avatar" style="display:none;">http://pic.cnblogs.com/face/u144977.jpg</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2822999" class="layer">#5楼</a><a name="2822999" id="comment_anchor_2822999"></a>  <span class="comment_date">2013-11-24 12:33</span> <a id="a_comment_author_2822999" href="http://www.cnblogs.com/buzhizhe/" target="_blank">不知者</a> <a href="http://msg.cnblogs.com/send/%E4%B8%8D%E7%9F%A5%E8%80%85" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2822999" class="blog_comment_body">把窗体之间传递参数当个事，说明你本身就被“窗体”这个概念束缚住了。<br>所谓的“窗体”，不就是2个不同类的实例么，类和类之间交换数据更是最基本的操作。<br>比如在form1里new form2之后，完全可以访问form2的public属性或方法来给form2里的传递数据，调用完之后再form2.show不就可以么。<br>同样，只要在form1里定义public的属性和方法，那在form2里一样是可以任意的调用和赋值。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2822999,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2822999,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2822999_avatar" style="display:none;">http://pic.cnblogs.com/face/u97786.jpg</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2823026" class="layer">#6楼</a><a name="2823026" id="comment_anchor_2823026"></a>  <span class="comment_date">2013-11-24 13:44</span> <a id="a_comment_author_2823026" href="http://www.cnblogs.com/yangcaogui/" target="_blank">TimYang</a> <a href="http://msg.cnblogs.com/send/TimYang" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2823026" class="blog_comment_body"><a href="https://www.cnblogs.com/jara/p/3439603.html#2822999" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2822999);">@</a>
+不知者<br><br>学习了，回去自己试一下。谢谢了。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2823026,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2823026,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2823026_avatar" style="display:none;">http://pic.cnblogs.com/face/322864/20131228231744.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2823047" class="layer">#7楼</a><a name="2823047" id="comment_anchor_2823047"></a>  <span class="comment_date">2013-11-24 14:39</span> <a id="a_comment_author_2823047" href="http://www.cnblogs.com/ryuasuka/" target="_blank">飞鸟_Asuka</a> <a href="http://msg.cnblogs.com/send/%E9%A3%9E%E9%B8%9F_Asuka" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2823047" class="blog_comment_body">不错，学习了<br><br>另外5楼的方法也是可行的，但是要注意不能污染窗体类本身，不能使某个控件完全变成public</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2823047,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2823047,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2823047_avatar" style="display:none;">http://pic.cnblogs.com/face/400008/20131104132630.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2823289" class="layer">#8楼</a><a name="2823289" id="comment_anchor_2823289"></a>  <span class="comment_date">2013-11-25 00:19</span> <a id="a_comment_author_2823289" href="http://home.cnblogs.com/u/227254/" target="_blank">玉菜园</a> <a href="http://msg.cnblogs.com/send/%E7%8E%89%E8%8F%9C%E5%9B%AD" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2823289" class="blog_comment_body">总结的不错</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2823289,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2823289,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2823305" class="layer">#9楼</a><a name="2823305" id="comment_anchor_2823305"></a>  <span class="comment_date">2013-11-25 02:18</span> <a id="a_comment_author_2823305" href="http://www.cnblogs.com/linianhui/" target="_blank">blackheart</a> <a href="http://msg.cnblogs.com/send/blackheart" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2823305" class="blog_comment_body"><a href="https://www.cnblogs.com/jara/p/3439603.html#2822999" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2822999);">@</a>
+不知者<br><fieldset class="comment_quote"><legend><a href="https://www.cnblogs.com/jara/p/3439603.html#2822999" title="查看引用原文">引用</a></legend>把窗体之间传递参数当个事，说明你本身就被“窗体”这个概念束缚住了。<br>所谓的“窗体”，不就是2个不同类的实例么，类和类之间交换数据更是最基本的操作。<br>比如在form1里new form2之后，完全可以访问form2的public属性或方法来给form2里的传递数据，调用完之后再form2.show不就可以么。<br>同样，只要在form1里定义public的属性和方法，那在form2里一样是可以任意的调用和赋值。</fieldset><br>你的思路是对的。本质就是两个对象之间的数据传递。<br>但是用公开属性的方式本身就是对类的污染。<br><br>拿楼主的例子来说，form2的功能是接受一个文本，然后返回修改后的值。<br>1传入：那么想要实例化出form2则必须接受这个文本，所以这个文本通过构造函数传递就在合适不过了（如果你不传递这个参数，那么这个窗体即使show出来也是没用的）。<br>2传出：form2的功能是返回一个修改过的值，至于谁接受，那form2不管，也不是它该处理的。所以通过事件（委托）的方式再合适不过了。<br><br>3一个类的设计无非是它接受什么数据，返回什么数据或者处理什么逻辑。但是有一个原则是，做好它该做的（单一职责），不暴漏不该暴漏的成员（弱化对象间的关联性）。职责单一了、关联性不强了，自然就解耦了，也就更方便维护。如果公开一个属性，那无疑是强强关联到了一起（也就是我还要保留着form2的引用才能得到值）。还有一种情况，我是新来的，不知道你这个类怎么用，所以我就new出来一个form2，然后show，不知道有赋值某个属性这一步，那么打开form2后就发现啥值都没，，，。所以这个值就必须在new的时候就强制你要传递。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2823305,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2823305,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2823305_avatar" style="display:none;">http://pic.cnblogs.com/face/168328/20150531133029.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2823308" class="layer">#10楼</a><a name="2823308" id="comment_anchor_2823308"></a>  <span class="comment_date">2013-11-25 02:30</span> <a id="a_comment_author_2823308" href="http://www.cnblogs.com/linianhui/" target="_blank">blackheart</a> <a href="http://msg.cnblogs.com/send/blackheart" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2823308" class="blog_comment_body">form2需要的只是一个字符串，然后再返回一个字符串。<br><br>楼主的第一种不合适，form2不需要ListBox lb,int index<br>第二种继承根本就不沾边，直接pass.<br>第三种最合适。<br><br>2楼说得对，事件约定（object sender, EventArgse）。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2823308,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2823308,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2823308_avatar" style="display:none;">http://pic.cnblogs.com/face/168328/20150531133029.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2823321" class="layer">#11楼</a><a name="2823321" id="comment_anchor_2823321"></a>[<span class="louzhu">楼主</span>]  <span class="comment_date">2013-11-25 08:19</span> <a id="a_comment_author_2823321" href="http://www.cnblogs.com/jara/" target="_blank">Jara</a> <a href="http://msg.cnblogs.com/send/Jara" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2823321" class="blog_comment_body"><a href="https://www.cnblogs.com/jara/p/3439603.html#2822905" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2822905);">@</a>
+sunnychenjuan<br>OK</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2823321,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2823321,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2823321_avatar" style="display:none;">http://pic.cnblogs.com/face/208157/20161001105959.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2823323" class="layer">#12楼</a><a name="2823323" id="comment_anchor_2823323"></a>[<span class="louzhu">楼主</span>]  <span class="comment_date">2013-11-25 08:20</span> <a id="a_comment_author_2823323" href="http://www.cnblogs.com/jara/" target="_blank">Jara</a> <a href="http://msg.cnblogs.com/send/Jara" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2823323" class="blog_comment_body"><a href="https://www.cnblogs.com/jara/p/3439603.html#2822927" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2822927);">@</a>
+徐少侠<br>方法各异。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2823323,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2823323,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2823323_avatar" style="display:none;">http://pic.cnblogs.com/face/208157/20161001105959.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2823324" class="layer">#13楼</a><a name="2823324" id="comment_anchor_2823324"></a>[<span class="louzhu">楼主</span>]  <span class="comment_date">2013-11-25 08:21</span> <a id="a_comment_author_2823324" href="http://www.cnblogs.com/jara/" target="_blank">Jara</a> <a href="http://msg.cnblogs.com/send/Jara" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2823324" class="blog_comment_body"><a href="https://www.cnblogs.com/jara/p/3439603.html#2822987" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2822987);">@</a>
+江湖海<br><br>是呀！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2823324,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2823324,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2823324_avatar" style="display:none;">http://pic.cnblogs.com/face/208157/20161001105959.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2823325" class="layer">#14楼</a><a name="2823325" id="comment_anchor_2823325"></a>[<span class="louzhu">楼主</span>]  <span class="comment_date">2013-11-25 08:22</span> <a id="a_comment_author_2823325" href="http://www.cnblogs.com/jara/" target="_blank">Jara</a> <a href="http://msg.cnblogs.com/send/Jara" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2823325" class="blog_comment_body"><a href="https://www.cnblogs.com/jara/p/3439603.html#2822999" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2822999);">@</a>
+不知者<br><br>可以这样认为。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2823325,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2823325,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2823325_avatar" style="display:none;">http://pic.cnblogs.com/face/208157/20161001105959.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2823326" class="layer">#15楼</a><a name="2823326" id="comment_anchor_2823326"></a>[<span class="louzhu">楼主</span>]  <span class="comment_date">2013-11-25 08:22</span> <a id="a_comment_author_2823326" href="http://www.cnblogs.com/jara/" target="_blank">Jara</a> <a href="http://msg.cnblogs.com/send/Jara" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2823326" class="blog_comment_body"><a href="https://www.cnblogs.com/jara/p/3439603.html#2823026" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2823026);">@</a>
+TimYang<br>不用客气。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2823326,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2823326,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2823326_avatar" style="display:none;">http://pic.cnblogs.com/face/208157/20161001105959.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2823327" class="layer">#16楼</a><a name="2823327" id="comment_anchor_2823327"></a>[<span class="louzhu">楼主</span>]  <span class="comment_date">2013-11-25 08:23</span> <a id="a_comment_author_2823327" href="http://www.cnblogs.com/jara/" target="_blank">Jara</a> <a href="http://msg.cnblogs.com/send/Jara" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2823327" class="blog_comment_body"><a href="https://www.cnblogs.com/jara/p/3439603.html#2823047" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2823047);">@</a>
+飞鸟_Asuka<br><br>一般定义为私有方法。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2823327,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2823327,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2823327_avatar" style="display:none;">http://pic.cnblogs.com/face/208157/20161001105959.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2823435" class="layer">#17楼</a><a name="2823435" id="comment_anchor_2823435"></a>  <span class="comment_date">2013-11-25 10:10</span> <a id="a_comment_author_2823435" href="http://www.cnblogs.com/flyher/" target="_blank">flyher</a> <a href="http://msg.cnblogs.com/send/flyher" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2823435" class="blog_comment_body"><a href="https://www.cnblogs.com/jara/p/3439603.html#2822999" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2822999);">@</a>
+不知者<br><fieldset class="comment_quote"><legend><a href="https://www.cnblogs.com/jara/p/3439603.html#2822999" title="查看引用原文">引用</a></legend>把窗体之间传递参数当个事，说明你本身就被“窗体”这个概念束缚住了。<br>所谓的“窗体”，不就是2个不同类的实例么，类和类之间交换数据更是最基本的操作。<br>比如在form1里new form2之后，完全可以访问form2的public属性或方法来给form2里的传递数据，调用完之后再form2.show不就可以么。<br>同样，只要在form1里定义public的属性和方法，那在form2里一样是可以任意的调用和赋值。</fieldset><br>正调简单，试试反调。呵呵，</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2823435,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2823435,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2823435_avatar" style="display:none;">http://pic.cnblogs.com/face/u218282.jpg</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2823460" class="layer">#18楼</a><a name="2823460" id="comment_anchor_2823460"></a>  <span class="comment_date">2013-11-25 10:32</span> <a id="a_comment_author_2823460" href="http://home.cnblogs.com/u/230482/" target="_blank">tiigger</a> <a href="http://msg.cnblogs.com/send/tiigger" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2823460" class="blog_comment_body">方法3里要先判断事件变量是否为空，不然可能异常</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2823460,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2823460,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2823615" class="layer">#19楼</a><a name="2823615" id="comment_anchor_2823615"></a>  <span class="comment_date">2013-11-25 12:36</span> <a id="a_comment_author_2823615" href="http://www.cnblogs.com/Chinese-xu/" target="_blank">徐少侠</a> <a href="http://msg.cnblogs.com/send/%E5%BE%90%E5%B0%91%E4%BE%A0" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2823615" class="blog_comment_body"><a href="https://www.cnblogs.com/jara/p/3439603.html#2823435" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2823435);">@</a>
+flyher<br><fieldset class="comment_quote"><legend><a href="https://www.cnblogs.com/jara/p/3439603.html#2823435" title="查看引用原文">引用</a></legend>@不知者<br><fieldset class="comment_quote"><legend>引用</legend>引用把窗体之间传递参数当个事，说明你本身就被“窗体”这个概念束缚住了。<br>所谓的“窗体”，不就是2个不同类的实例么，类和类之间交换数据更是最基本的操作。<br>比如在form1里new form2之后，完全可以访问form2的public属性或方法来给form2里的传递数据，调用完之后再form2.show不就可以么。<br>同样，只要在form1里定义public的属性和方法，那在form2里一样是可以任意的调用和赋值。</fieldset><br>正调简单，试试反调。呵呵，</fieldset><br><br>看看windows 自己那些控件的属性吧<br>里面有没有parent？<br>反调无非是让被new的那个知道有parent存在就可以了<br>构造传参，或者属性传参<br>然后，show（）<br><br>真心不懂那些一直纠结于窗体传参的兄弟们，平时用不用各种dialog？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2823615,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2823615,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2823768" class="layer">#20楼</a><a name="2823768" id="comment_anchor_2823768"></a>  <span class="comment_date">2013-11-25 15:36</span> <a id="a_comment_author_2823768" href="http://www.cnblogs.com/flyher/" target="_blank">flyher</a> <a href="http://msg.cnblogs.com/send/flyher" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2823768" class="blog_comment_body"><a href="https://www.cnblogs.com/jara/p/3439603.html#2823615" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2823615);">@</a>
+徐少侠<br><fieldset class="comment_quote"><legend><a href="https://www.cnblogs.com/jara/p/3439603.html#2823615" title="查看引用原文">引用</a></legend>@flyher<br><br>引用@不知者<br><br>引用引用把窗体之间传递参数当个事，说明你本身就被“窗体”这个概念束缚住了。<br>所谓的“窗体”，不就是2个不同类的实例么，类和类之间交换数据更是最基本的操作。<br>比如在form1里new form2之后，完全可以访问form2的public属性或方法来给form2里的传递数据，调用完之后再form2.show不就可以么。<br>同样，只要在form1里定义public的属性和方法，那在form2里一样是可以任意的调用和赋值。<br>正调简单，试试反调。呵呵，<br><br>看看windows 自己那些控件的属性吧<br>里面有没有parent？<br>反调无非是让被new的那个知道有parent存...</fieldset><br>“反调无非是让被new的那个知道有parent存在就可以了构造传参，或者属性传参然后，show（）”<br>你是在考验我的智商么？你show我看看？我到要看看你怎么个show。顺便也好请教一下。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2823768,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2823768,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2823768_avatar" style="display:none;">http://pic.cnblogs.com/face/u218282.jpg</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2823825" class="layer">#21楼</a><a name="2823825" id="comment_anchor_2823825"></a>  <span class="comment_date">2013-11-25 16:27</span> <a id="a_comment_author_2823825" href="http://www.cnblogs.com/waitrabbit/" target="_blank">炭炭</a> <a href="http://msg.cnblogs.com/send/%E7%82%AD%E7%82%AD" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2823825" class="blog_comment_body">只看了标题。首先继承肯定是不对的。<br>这个东西简单的合一一样，传值你得告诉我值在哪，就两个本质解决方法：<br>1，传实例句柄。<br>2，用全局变量，即静态。<br>LZ的文章和回复都忽略吧。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2823825,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2823825,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2823825_avatar" style="display:none;">http://pic.cnblogs.com/face/u15545.jpg?id=13132235</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2823868" class="layer">#22楼</a><a name="2823868" id="comment_anchor_2823868"></a>  <span class="comment_date">2013-11-25 16:57</span> <a id="a_comment_author_2823868" href="http://www.cnblogs.com/buzhizhe/" target="_blank">不知者</a> <a href="http://msg.cnblogs.com/send/%E4%B8%8D%E7%9F%A5%E8%80%85" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2823868" class="blog_comment_body"><a href="https://www.cnblogs.com/jara/p/3439603.html#2823305" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2823305);">@</a>
+乱舞春秋<br><fieldset class="comment_quote"><legend><a href="https://www.cnblogs.com/jara/p/3439603.html#2823305" title="查看引用原文">引用</a></legend>@不知者<br><fieldset class="comment_quote"><legend>引用</legend>引用把窗体之间传递参数当个事，说明你本身就被“窗体”这个概念束缚住了。<br>所谓的“窗体”，不就是2个不同类的实例么，类和类之间交换数据更是最基本的操作。<br>比如在form1里new form2之后，完全可以访问form2的public属性或方法来给form2里的传递数据，调用完之后再form2.show不就可以么。<br>同样，只要在form1里定义public的属性和方法，那在form2里一样是可以任意的调用和赋值。</fieldset><br>你的思路是对的。本质就是两个对象之间的数据传递。<br>但是用公开属性的方式本身就是对类的污染。<br><br>拿楼主的例子来说，form2的功能是接受一个文本，然...</fieldset><br><br>首先我的意思是让大家不要被“窗体”这个概念束缚住，从而忘了它本身就是一个类的实例的本质。从这个角度，构造函数传参也是类和类之间传递数据的正常方式。<br>另外，“用公开属性的方式本身就是对类的污染”这点是正确的，但用正常的类和类之间的数据传递也很少直接访问对方的属性的吧，一般都是用公开方法（简单的属性赋值和获取一般都用set get的方法而不是直接赋值和获取）。公开的方法就不存在类污染这个问题，除非你故意设计不合理的方法，呵呵。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2823868,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2823868,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2823868_avatar" style="display:none;">http://pic.cnblogs.com/face/u97786.jpg</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jara/p/3439603.html#2824229" class="layer">#23楼</a><a name="2824229" id="comment_anchor_2824229"></a><span id="comment-maxId" style="display:none;">2824229</span><span id="comment-maxDate" style="display:none;">2013/11/26 9:35:19</span>  <span class="comment_date">2013-11-26 09:35</span> <a id="a_comment_author_2824229" href="http://www.cnblogs.com/Higel/" target="_blank">Higel</a> <a href="http://msg.cnblogs.com/send/Higel" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2824229" class="blog_comment_body">“用公开属性的方式本身就是对类的污染”……这么环保啊！！<br>不要这么形式化好吧！<br><br>引用某句台词：长得丑不是你的错，出来吓人就是你不对了吗。 长得丑就适当隐藏一下，如果长得美完全可以公开地站在选美的舞台——开个玩笑……<br><br>“污染”不是因为“公开”本身，是因为你公开了不该公开的。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2824229,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2824229,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/jara/p/3439603.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/jara/p/3439603.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="https://cloud.tencent.com/developer/support-plan?fromSource=gwzcw.710852.710852.710852" target="_blank">【推荐】加入腾讯云自媒体扶持计划，免费领取域名&amp;服务器</a><br><a href="http://click.aliyun.com/m/17164/" target="_blank">【推荐】高性能云服务器2折起，0.73元/日节省80%运维成本</a><br><a href="https://news.cnblogs.com/n/582971/" target="_blank">【新闻】H3 BPM体验平台全面上线</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="http://www.grapecity.com.cn/enterprise-solutions/huozige/?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=huozige&amp;utm_campaign=community" target="_blank"><img width="300" height="250" src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/24442-20171114102259156-1700577248.png" alt="葡萄城1114"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="https://news.cnblogs.com/n/585511/" target="_blank">GitHub为网络中立性背书</a><br> ·  <a href="https://news.cnblogs.com/n/585510/" target="_blank">我们体验了几款苹果ARKit应用，未来的游戏和应用这样玩才对</a><br> ·  <a href="https://news.cnblogs.com/n/585509/" target="_blank">互联网公司新玩法：给作者补贴，不如给读者补贴</a><br> ·  <a href="https://news.cnblogs.com/n/585500/" target="_blank">万达电商大幅裁员背后，腾百万是一步臭棋！</a><br> ·  <a href="https://news.cnblogs.com/n/585508/" target="_blank">天使投资人王刚的29条投资经验</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://click.aliyun.com/m/34770/" target="_blank"><img width="468" height="60" src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/24442-20171208101900738-116140477.jpg" alt="阿里云C2-1208"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/585502/" target="_blank">步入云计算</a><br> ·  <a href="http://kb.cnblogs.com/page/531409/" target="_blank">以操作系统的角度述说线程与进程</a><br> ·  <a href="http://kb.cnblogs.com/page/141729/" target="_blank">软件测试转型之路</a><br> ·  <a href="http://kb.cnblogs.com/page/177402/" target="_blank">门内门外看招聘</a><br> ·  <a href="http://kb.cnblogs.com/page/112506/" target="_blank">大道至简，职场上做人做事做管理</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><!--把“442389681”替换成你的QQ号-->
+<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=442389681&amp;site=qq&amp;menu=yes"><img border="0" src="./总结几种C#窗体间通讯的处理方法 - Jara - 博客园_files/pa" alt="有事您Q我" title="有事您Q我"></a>
+
+
+
+
+<embed wmode="transparent" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.swf" quality="high" bgcolor="#ffffff" width="160" height="70" name="honehoneclock" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer">
+
+
+
+
+
+<div style="display: none" id="__document_write_ajax_div-2"></div><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/jara/">Jara</a><br>园龄：<a href="http://home.cnblogs.com/u/jara/" title="入园时间：2010-11-22">7年</a><br>粉丝：<a href="http://home.cnblogs.com/u/jara/followers/">140</a><br>关注：<a href="http://home.cnblogs.com/u/jara/followees/">15</a><div id="p_b_follow"></div><div style="display: none" id="__document_write_ajax_div-3"></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2017/11/01&#39;);return false;">&lt;</a></td><td align="center">2017年12月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/01/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">26</td><td class="CalOtherMonthDay" align="center">27</td><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td align="center">1</td><td class="CalWeekendDay" align="center">2</td></tr><tr><td class="CalWeekendDay" align="center">3</td><td align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td class="CalWeekendDay" align="center">9</td></tr><tr><td class="CalWeekendDay" align="center">10</td><td align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td class="CalWeekendDay" align="center">16</td></tr><tr><td class="CalWeekendDay" align="center">17</td><td align="center">18</td><td align="center">19</td><td align="center">20</td><td class="CalTodayDay" align="center">21</td><td align="center">22</td><td class="CalWeekendDay" align="center">23</td></tr><tr><td class="CalWeekendDay" align="center">24</td><td align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td align="center">29</td><td class="CalWeekendDay" align="center">30</td></tr><tr><td class="CalWeekendDay" align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/jara/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/jara/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/jara/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/jara/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/jara/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block">
+<div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/jara/tag/gridview/">gridview</a>(5)</li><li><a href="http://www.cnblogs.com/jara/tag/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>(5)</li><li><a href="http://www.cnblogs.com/jara/tag/C%23/">C#</a>(4)</li><li><a href="http://www.cnblogs.com/jara/tag/Linq/">Linq</a>(3)</li><li><a href="http://www.cnblogs.com/jara/tag/C%2B%2B%20C%23/">C++ C#</a>(2)</li><li><a href="http://www.cnblogs.com/jara/tag/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">单元测试</a>(2)</li><li><a href="http://www.cnblogs.com/jara/tag/%E5%8F%8C%E8%89%B2%E7%90%83/">双色球</a>(2)</li><li><a href="http://www.cnblogs.com/jara/tag/GridControl/">GridControl</a>(2)</li><li><a href="http://www.cnblogs.com/jara/tag/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>(2)</li><li><a href="http://www.cnblogs.com/jara/tag/%E7%BA%BF%E7%A8%8B%E6%B1%A0/">线程池</a>(1)</li><li><a href="http://www.cnblogs.com/jara/tag/">更多</a></li>
+</ul>
+</div></div><div id="sidebar_categories">
+<div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/jara/archive/2017/11.html">2017年11月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/jara/archive/2017/10.html">2017年10月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/jara/archive/2017/07.html">2017年7月 (7)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/jara/archive/2017/06.html">2017年6月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/jara/archive/2017/05.html">2017年5月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="http://www.cnblogs.com/jara/archive/2014/11.html">2014年11月 (9)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="http://www.cnblogs.com/jara/archive/2014/10.html">2014年10月 (8)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="http://www.cnblogs.com/jara/archive/2014/09.html">2014年9月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="http://www.cnblogs.com/jara/archive/2014/08.html">2014年8月 (14)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_9" href="http://www.cnblogs.com/jara/archive/2014/07.html">2014年7月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_10" href="http://www.cnblogs.com/jara/archive/2014/06.html">2014年6月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_11" href="http://www.cnblogs.com/jara/archive/2014/05.html">2014年5月 (8)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_12" href="http://www.cnblogs.com/jara/archive/2014/04.html">2014年4月 (7)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_13" href="http://www.cnblogs.com/jara/archive/2014/03.html">2014年3月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_14" href="http://www.cnblogs.com/jara/archive/2014/01.html">2014年1月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_15" href="http://www.cnblogs.com/jara/archive/2013/12.html">2013年12月 (7)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_16" href="http://www.cnblogs.com/jara/archive/2013/11.html">2013年11月 (17)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_17" href="http://www.cnblogs.com/jara/archive/2013/10.html">2013年10月 (23)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_18" href="http://www.cnblogs.com/jara/archive/2012/11.html">2012年11月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_19" href="http://www.cnblogs.com/jara/archive/2011/08.html">2011年8月 (1)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_scorerank" class="sidebar-block">
+<div class="catListBlogRank">
+<h3 class="catListTitle">积分与排名</h3>
+<ul>
+	<li class="liScore">
+		积分 -	65425
+	</li>
+	<li class="liRank">
+		排名 -	5039
+	</li>
+</ul>
+</div>
+
+
+</div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/jara/p/3420502.html">1. C#正则表达式大全(9288)</a></li><li><a href="http://www.cnblogs.com/jara/p/3458583.html">2. 浅谈C#泛型的定义、继承、方法和约束(7839)</a></li><li><a href="http://www.cnblogs.com/jara/p/3405098.html">3. C#线程池用法(4797)</a></li><li><a href="http://www.cnblogs.com/jara/p/3405717.html">4. C#470多例winform 界面特效的源码(4118)</a></li><li><a href="http://www.cnblogs.com/jara/p/3452991.html">5. 创建C#串口通信程序详解(3705)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/jara/p/3405717.html">1. C#470多例winform 界面特效的源码(91)</a></li><li><a href="http://www.cnblogs.com/jara/p/3420502.html">2. C#正则表达式大全(44)</a></li><li><a href="http://www.cnblogs.com/jara/p/3432397.html">3. C#:手把手教你用C#打包应用程序(安装程序卸载程序)(25)</a></li><li><a href="http://www.cnblogs.com/jara/p/3439603.html">4. 总结几种C#窗体间通讯的处理方法(23)</a></li><li><a href="http://www.cnblogs.com/jara/p/3426215.html">5. C# Winform实现手机号码归属地查询工具(22)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/jara/p/3420502.html">1. C#正则表达式大全(50)</a></li><li><a href="http://www.cnblogs.com/jara/p/3473996.html">2. 年终巨献 史上最全 ——LINQ to SQL语句(25)</a></li><li><a href="http://www.cnblogs.com/jara/p/3427398.html">3. C# 多线程学习总结(16)</a></li><li><a href="http://www.cnblogs.com/jara/p/3456672.html">4. 不一样的入门：看C# Hello World的17种写法(11)</a></li><li><a href="http://www.cnblogs.com/jara/p/3468419.html">5. .NET多线程总结和实例介绍(9)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2017 Jara
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+</body></html>
