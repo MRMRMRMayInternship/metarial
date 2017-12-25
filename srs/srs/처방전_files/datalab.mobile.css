@@ -1,0 +1,44 @@
+/* 공통 차트 데이터랩 */
+/* .spcm,.spcm_bf:before,.spcm_af:after{background:url(http://view.gitlab2.uit.nhncorp.com/SEARCH-CONTENTS/m-search-exten/raw/develop/src/02_sport_player/im/sp_im_graph.png)) no-repeat 0 0;background-size:300px 300px;-webkit-background-size:300px 300px} */
+.api_c3p_datalab {position:relative}
+.api_c3p_datalab text tspan{fill:#737373;font-size:13px}
+.api_c3p_datalab .c3-chart path,.c3-chart line{fill:none;stroke:#c4c4c4}
+.api_c3p_datalab .c3-axis-x path{stroke:#f1f1f5}
+.api_c3p_datalab .c3-axis-x line{opacity:0}
+.api_c3p_datalab .c3-ygrids line{stroke:#f1f1f5}
+.api_c3p_datalab .c3-xgrid-lines line{stroke:#e9ecef;stroke-dasharray:3 2}
+.api_c3p_datalab .c3-chart-bars .c3-bars{stroke-width:1px}
+.api_c3p_datalab .c3-circle{stroke:#78a5ee;stroke-width:1px;fill:#fff !important}
+.api_c3p_datalab .c3-area{stroke-width:0;stroke:#78a5ee;opacity:0.1}
+.api_c3p_datalab .datalab-bar .c3-ygrids line:last-child{display:none}
+
+.api_c3p_datalab .c3-chart-arcs .c3-arc{stroke-width:6;stroke:#fff !important}
+.api_c3p_datalab .c3-chart-arcs .c3-chart-arc:last-child .c3-arc{stroke-width:0}
+.api_c3p_datalab .c3-chart-arcs text{pointer-events:none;text-anchor:middle;display:block;font-size:17px;}
+.api_c3p_datalab .c3-chart-arcs text .datalab-unit{font-size:10px}
+
+.api_c3p_datalab.white_label .c3-chart-arcs text{fill:#fff !important;}
+.api_c3p_datalab.white_label .c3-chart-arcs text .datalab-unit{fill:#fff !important;}
+.api_c3p_datalab.white_label .c3-chart-texts text{fill:#fff !important;display:none}
+
+.api_c3p_datalab .datalab-max-point{display:block;position:absolute;margin:-5px 0 0 0}
+.api_c3p_datalab .datalab-max-point .point:after{content:'';position:absolute;top:9px;right:14px;display:inline-block;width:28px;height:1px;background-color:#f1632a}
+.api_c3p_datalab .datalab-max-point .point:before{content:'';display:inline-block;width:19px;height:20px;background-position:-276px -221px;vertical-align:top}
+.api_c3p_datalab .datalab-max-point .point.left:after{left:14px}
+.api_c3p_datalab .datalab-max-point .point.left:before{left:0}
+.api_c3p_datalab .datalab-max-point .txt{position:absolute;top:0;right:41px;display:block;padding:4px 8px 3px;font-size:1.3rem;color:#f1632a;line-height:1.1rem;white-space:nowrap;border:1px solid #f1632a;background-color:#fff;-webkit-border-radius:10px;border-radius:10px}
+.api_c3p_datalab .datalab-max-point .point.left .txt{left:41px;right:auto}
+
+/*datalab-max-point*/
+
+/*.api_c3p_datalab .c3-chart-arcs .c3-arc{stroke-width:4;stroke:#fff;}*/
+/*.api_c3p_datalab .c3-chart-arcs .c3-arc-female{stroke-width:1;stroke:#dd50d3;}*/
+/*.api_c3p_datalab .c3-chart-arcs .c3-arc-male{stroke-width:1;stroke:#26d3df;}*/
+
+
+/*.api_c3p_datalab .c3-chart-arcs .datalab-data-label-female{fill:#bb79E2;}*/
+/*.api_c3p_datalab .c3-chart-arcs .datalab-data-label-male{fill:#45c8d6;}*/
+/*.api_c3p_datalab .c3-chart-arcs .c3-target-female text{fill:#bb79E2;}*/
+/*.api_c3p_datalab .c3-chart-arcs .c3-target-male text{fill:#45c8d6;}*/
+
+/*.api_c3p_datalab.white_label .c3-chart-arcs text{fill:#fff;!important}*/

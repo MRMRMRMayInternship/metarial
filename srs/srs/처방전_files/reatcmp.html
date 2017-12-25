@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0034)http://terms.naver.com/reatcmp.jsp -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+
+<title>네이버 자동완성 :: 세상의 모든 지식, 네이버</title>
+<style type="text/css"> 
+body,p,h1,h2,h3,h4,h5,h6,menu,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select,hr{margin:0;padding:0}
+body,input,textarea,select,button,table{font-family:'돋움',Dotum, sans-serif;font-size:12px;line-height:14px}
+img,fieldset{border:0}
+menu,ul,ol{list-style:none}
+em,address{font-style:normal}
+a{color:#666;text-decoration:none}
+a:hover{text-decoration:underline}
+a:active,a:focus{text-decoration:none}
+button{border:0;background:none;cursor:pointer}
+.blind{visibility:hidden;overflow:hidden;position:absolute;top:0;left:0;width:0;height:0;font-size:0;line-height:0}
+/* autocomplete */
+.wrap{border-right:1px solid #00a933;border-bottom:1px solid #00a933;border-left:1px solid #00a933;background-color:#fff;position:relative}
+.words{overflow:auto;width:100%}
+.words em{color:#f86d1a}
+.words ul{overflow:hidden;margin:5px 0}
+.words .other{padding-top:2px;border-top:1px solid #e1e1e1}
+.words li{height:22px;line-height:22px;vertical-align:top}
+.words li a{display:block;width:100%;background-color:#fff;text-indent:10px;text-decoration:none;color:#333;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+.words li a:hover{text-decoration:none}
+.words li strong{color:#fe1a1a;font-weight:normal}
+.words.top li strong{font-weight:bold}
+.words li.atcmp_on a{background-color:#f2f4f7}
+.words .tx_sch{margin-left:-1px;background:url(http://static.naver.net/se/bu_sp.gif) no-repeat 0 -80px}
+.words .tx_sch em{padding:1px 5px 0 4px;background:url(http://static.naver.net/se/bu_sp.gif) no-repeat 100% -95px;font-size:11px;color:#2f3743;letter-spacing:-1px}
+.msg{padding:13px 9px 9px 10px;color:#666}
+.func{overflow:hidden;clear:both;width:100%;padding:9px 0 9px;background:#f9fafc;font-size:11px;color:#ebeef3;letter-spacing:-1px;line-height:1.3em;border-top:1px solid #ebeef3}
+.func span{float:right;padding-right:10px}
+.func a{margin:0 3px;color:#666}
+.func a:hover{text-decoration:underline}
+.func .bar{display:inline-block;margin:0 7px 0 6px}
+.func .run_view{float:left;padding-left:8px;text-align:left}
+.atcmp_helper{position:absolute;display:none;overflow:hidden;bottom:32px;right:16px;height:18px;padding:1px 4px 0;line-height:19px;color:#444;border:1px solid #00c73c;background-color:#f6fbf7;z-index:10}
+.atcmp_helper .ico_search{display:inline-block;width:24px;height:13px;margin:2px 2px 0 0;background:url(http://static.naver.net/terms/terms/img/atcmp.gif) no-repeat;vertical-align:top}
+
+</style>
+<script type="text/javascript">document.domain = "naver.com";</script>
+<script type="text/javascript" src="./nhn.jsdynamic.load.js.다운로드" charset="UTF-8"></script>
+</head>
+<body>
+<div class="wrap" id="atcmp" style="display:none;">
+	<div class="words top">
+		<ul class="_resultBox1"><li><a href="http://terms.naver.com/reatcmp.jsp#" onclick="clickcr(this, &#39;sch.autoclick&#39;, &#39;&#39;, &#39;@rank@&#39;, event); return false;">@txt@</a><span style="display:none">@in_txt@</span></li></ul>
+	</div>
+	<p class="func">
+		<span><a href="https://help.naver.com/support/service/main.nhn?serviceNo=606&amp;categoryNo=1987" onclick="parent.clickcr(this,&#39;sch.help&#39;,&#39;&#39;,&#39;&#39;, event, 1);" target="_blank">도움말</a> | <a class="funoff" href="http://terms.naver.com/reatcmp.jsp#" onclick="parent.smartSearch.unuseSuggest(); return false;">자동완성 끄기</a><!-- N=a:sch.autooff --></span>
+	</p>
+	<span class="atcmp_helper" id="help_tooltip1" style="display:block;">기능을 다시 켤 때는 <em class="ico_search"><span class="blind">자동완성 펼치기</span></em>을 클릭하세요</span>
+</div>
+<!-- 자동완성 사용하지 않을 때 -->
+<div class="wrap" id="atcmpIng" style="display:none;">
+	<div class="wrap_in">
+		<div class="words">
+			<p class="msg">
+				현재 자동완성 기능을 사용하고 계십니다.
+			</p>
+		</div>
+		<p class="func">
+			<span><a href="https://help.naver.com/support/service/main.nhn?serviceNo=606&amp;categoryNo=1987" onclick="parent.clickcr(this,&#39;sch.help&#39;,&#39;&#39;,&#39;&#39;, event, 1);" target="_blank">도움말</a> | <a href="http://terms.naver.com/reatcmp.jsp#" class="funoff" onclick="parent.smartSearch.unuseSuggest(); parent.clickcr(this,&#39;sch.autooff&#39;,&#39;&#39;,&#39;&#39;, event); return false;">자동완성 끄기</a></span>
+		</p>
+		<span class="atcmp_helper" id="help_tooltip2" style="display:block;">기능을 다시 켤 때는 <em class="ico_search"><span class="blind">자동완성 펼치기</span></em>을 클릭하세요</span>
+	</div>
+</div>
+<!-- 자동완성 사용하지 않을 때 --><!-- 자동완성 사용하지 않을 때 -->
+<div class="wrap" id="atcmpStart" style="display:none;">
+	<div class="wrap_in">
+		<div class="words">
+			<p class="msg">자동완성 기능이 활성화되었습니다.</p>
+		</div>
+		<p class="func">
+			<span><a href="https://help.naver.com/support/service/main.nhn?serviceNo=606&amp;categoryNo=1987" onclick="parent.clickcr(this,&#39;sch.help&#39;,&#39;&#39;,&#39;&#39;, event, 1);" target="_blank">도움말</a> | <a href="http://terms.naver.com/reatcmp.jsp#" class="funoff" onclick="parent.smartSearch.unuseSuggest(); parent.clickcr(this,&#39;sch.autooff&#39;,&#39;&#39;,&#39;&#39;, event); return false;">자동완성 끄기</a></span>
+		</p>
+		<span class="atcmp_helper" id="help_tooltip3" style="display:block;">기능을 다시 켤 때는 <em class="ico_search"><span class="blind">자동완성 펼치기</span></em>을 클릭하세요</span>
+	</div>
+</div>
+<!-- 자동완성 사용하지 않을 때 -->
+<script type="text/javascript">
+	//<![CDATA[
+	document.domain = "naver.com";
+	var nsc = parent.nsc;
+
+	if (parent.g_ssc) {
+		var g_ssc = parent.g_ssc;
+	}
+	if (parent.g_query) {
+		var g_query = parent.g_query;
+	}
+	var nclk_evt = 1;
+	//]]>
+</script>
+<script type="text/javascript">
+nhn.jsDynamicLoad.include("/js/nclktag.js?171220160132",function(){
+	nclk_do();
+});
+</script>
+
+</body></html>

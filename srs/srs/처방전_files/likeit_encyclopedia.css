@@ -1,0 +1,86 @@
+@charset "utf-8";
+/* NTS UIT Development Team PSJ 2014-04-16 */
+
+/* background image */
+.u_likeit_list_module .u_likeit_list_btn .u_ico,.u_likeit_list_module .u_likeit_list_btn.u_type_dark,.u_likeit_list_module .u_likeit_list_btn.u_type_dark .bg_blank{background-image:url(http://static.naver.net/common/likeit/encyclopedia/sp_likeit_list_v6.png)}
+#header .u_likeit_list_module .u_likeit_list_btn.u_type_button .u_ico,#header .u_likeit_list_module .u_likeit_list_btn.u_type_button.on .u_ico,
+.u_likeit_list_module .u_likeit_list_btn.u_type_round .u_ico,.u_likeit_list_module .u_likeit_list_btn.u_type_round.on .u_ico{background:url(http://static.naver.net/common/likeit/encyclopedia/sp_likeit_list_v7.png) no-repeat}
+
+/* 서비스 공통 */
+.u_likeit_list_module .u_likeit_list_btn{padding:0 8px 0 12px}
+.u_likeit_list_module .u_none_txt .u_txt{display:inline-block!important}
+.u_likeit_list_module .u_likeit_list_btn .u_ico{width:17px;height:15px;margin:0 5px 0 0}
+.u_likeit_list_module .u_likeit_list_btn .u_cnt,.u_likeit_list_module .u_likeit_list_btn .u_txt{margin-right:4px;line-height:27px;font-size:12px;font-family:"나눔고딕",NanumGothic,"돋움",dotum,AppleSDGothicNeo-Regular,sans-serif}
+.u_likeit_list_module .u_likeit_list_btn .bd_blank{display:none}
+
+/* 도움이 됐어요 적용 */
+.u_likeit_list_module .u_likeit_list_btn.u_type_dark{position:relative;height:30px;background-position:0 -20px;color:#404040}
+.u_likeit_list_module .u_likeit_list_btn.u_type_dark .bg_blank{display:inline-block;position:absolute;top:0;right:0;width:2px;height:29px;background-position:100% -20px}
+.u_likeit_list_module .u_likeit_list_btn.u_type_dark .u_ico{margin-top:7px;background-position:0 0}
+.u_likeit_list_module .u_likeit_list_btn.u_type_dark.on .u_ico{background-position:-20px 0}
+
+/* --------------------------------------------------------------------------- */
+/* 지식리스트 적용 */
+/* --------------------------------------------------------------------------- */
+.u_likeit_list_module .u_likeit_list_btn.u_type_count .u_ico,.u_likeit_list_module .u_likeit_list_btn.u_type_button .u_ico{background-image:url(http://static.naver.net/common/likeit/encyclopedia/sp_likeit_list_v3.png)}
+
+/* 좋아요 목록형_카운트 타입 */
+.u_likeit_list_module .u_likeit_list_btn.u_type_count{padding:0}
+.u_likeit_list_module .u_likeit_list_btn.u_type_count .u_txt{display:none!important}
+.u_likeit_list_module .u_likeit_list_btn.u_type_count .u_ico{display:inline-block;width:14px;height:13px;background-position:-35px -140px}
+.u_likeit_list_module .u_likeit_list_btn.u_type_count.on .u_ico{background-position:-85px -140px}
+.u_likeit_list_module .u_likeit_list_btn.u_type_count em.u_cnt{padding:0;line-height:14px;font-size:12px;font-weight:normal;font-weight:normal;font-family:"돋움",dotum,AppleSDGothicNeo-Regular,sans-serif;color:#888;vertical-align:top}
+
+/* 좋아요 목록형_버튼 타입_헤더 */
+#header .u_likeit_list_module{border:1px solid #e0e0e0;height:30px}
+#header .u_likeit_list_module .u_type_button{display:block;margin-left:1px;padding-right:8px;text-decoration:none}
+#header .u_likeit_list_module .u_likeit_list_btn.u_type_button{padding:0 0 0 10px;margin:0}
+#header .u_likeit_list_module .u_likeit_list_btn.u_type_button .u_txt{margin:0 3px;font-size:12px;font-weight:normal;font-family:"돋움",dotum,AppleSDGothicNeo-Regular,sans-serif;color:#333;line-height:32px}
+#header .u_likeit_list_module .u_likeit_list_btn.u_type_button .u_ico{display:inline-block;position:relative;top:6px;width:20px;height:17px;margin:0;background-position:0 -60px;vertical-align:top}
+#header .u_likeit_list_module .u_likeit_list_btn.u_type_button.on .u_ico{background-position:0 -90px}
+#header .u_likeit_list_module .u_likeit_list_btn.u_type_button .u_cnt{font-size:12px;font-family:"돋움",dotum,AppleSDGothicNeo-Regular,sans-serif;color:#333;line-height:32px;margin-right:10px}
+
+/* 좋아요 목록형_버튼 타입 */
+.tit_area2 .u_likeit_list_module .u_type_button{display:block;height:23px;padding:0 3px 0 7px;border:1px solid #d2d2d2;background-color:#fff}
+.tit_area2 .u_likeit_list_module .u_likeit_list_btn.u_type_button .u_txt{font-weight:bold;line-height:23px;color:#555}
+.tit_area2 .u_likeit_list_module .u_likeit_list_btn.u_type_button .u_ico{display:inline-block;position:relative;top:6px;width:12px;height:11px;margin:0 3px 0 0;background-position:-35px -140px}
+.tit_area2 .u_likeit_list_module .u_likeit_list_btn.u_type_button.on .u_ico{background-position:-85px -140px}
+.tit_area2 .u_likeit_list_module .u_likeit_list_btn.u_type_button .u_cnt{font-size:12px;font-weight:bold;font-family:Tahoma;color:#555;line-height:22px}
+
+/* 도움됐어요 목록형_라운드버튼 타입 */
+.u_likeit_list_module .u_likeit_list_btn.u_type_round{display:block;width:174px;height:50px;padding:0;color:#8e8e8e;text-align:center;text-decoration:none;border:1px solid #ddd}
+.u_likeit_list_module .u_likeit_list_btn.u_type_round .u_ico{display:inline-block;width:27px;height:22px;background-position:0 0;margin-top:14px}
+.u_likeit_list_module .u_likeit_list_btn.u_type_round.on .u_ico{background-position:0 -30px}
+.u_likeit_list_module .u_likeit_list_btn.u_type_round .u_txt{font-size:15px;margin:0;line-height:50px;font-weight:normal;font-family:"돋움",dotum,AppleSDGothicNeo-Regular,sans-serif;color:#333;text-align:center}
+.u_likeit_list_module .u_likeit_list_btn.u_type_round .u_cnt{margin:0 0 0 4px;font-size:15px;line-height:50px;color:#333;font-family:"돋움",dotum,AppleSDGothicNeo-Regular,sans-serif}
+
+/* 도움됐어요 지식리스트 상세 하단용  */
+.sns_box_wrap .likeit .u_likeit_list_module .u_likeit_list_btn.u_type_dark .u_txt{display:none}
+
+/* 지식리스트 개편 :: 상세 페이지_좋아요 목록형_라운드형 버튼  */
+.section.view .u_likeit_list_module,
+.u_likeit_list_module .u_type_button2,
+.section.view .over .u_likeit_list_module,
+.over .u_likeit_list_module .u_type_button2,
+.u_likeit_list_module .u_type_button2 .u_ico{background-image:url(http://static.naver.net/common/likeit/encyclopedia/sp_likeit_list_v6.png)}
+.section.view .u_likeit_list_module{background-position:0 -170px;cursor:pointer;}
+.u_likeit_list_module .u_type_button2{background-position:100% -170px;display:block;height:37px;margin:0 -15px 0 15px;padding:0 14px 0 0}
+.section.view .over .u_likeit_list_module{background-position:0 -210px}
+.over .u_likeit_list_module .u_type_button2{background-position:100% -210px}
+.u_likeit_list_module .u_type_button2 em,.u_likeit_list_module .u_type_button2 span{cursor:pointer;}
+.u_likeit_list_module .u_type_button2 .u_ico{display:inline-block;width:16px;height:16px;margin:11px 7px 0 0;background-position:-100px -140px;background-repeat:no-repeat;}
+.u_likeit_list_module .u_type_button2.on .u_ico{background-position:-120px -140px}
+.u_likeit_list_module .u_type_button2 .u_txt{display:none;font-size:12px;font-weight:bold;font-family:"돋움",dotum,AppleSDGothicNeo-Regular,sans-serif;color:#222;line-height:39px;}
+.u_likeit_list_module .u_type_button2 .u_cnt{padding-bottom:1px;font-size:12px;font-weight:bold;font-family:Tahoma;color:#222;line-height:36px}
+
+/* 이미지뷰어 좋아요 */
+.api_area .u_likeit_list_module .u_likeit_list_btn .u_cnt,.api_area .u_likeit_list_module .u_likeit_list_btn .u_txt{line-height:14px}
+.api_area .u_likeit_list_module .u_likeit_list_btn{padding:0}
+.api_area .u_likeit_list_module .u_likeit_list_btn .u_txt{margin:0 0 0 4px;font-family:"돋움",dotum,AppleSDGothicNeo-Regular,sans-serif;color:#838793}
+.api_area .u_likeit_list_module .u_likeit_list_btn .u_cnt{margin-right:0}
+.api_area .u_likeit_list_module .u_likeit_list_btn.u_type_dark{height:auto;background-image:none;cursor:pointer}
+.api_area .u_likeit_list_module .u_likeit_list_btn.u_type_dark .bg_blank{display:none}
+.api_area .u_likeit_list_module .u_type_dark .u_ico{display:inline-block;width:15px;height:14px;margin:-1px 0 0 1px;background-image:url(http://static.naver.net/common/likeit/encyclopedia/sp_likeit_list_v6.png);background-position:-140px -140px;vertical-align:top}
+.api_area .u_likeit_list_module .u_type_dark.on .u_ico{background-position:-160px -140px;}
+.api_area .u_likeit_list_module .u_likeit_list_btn .u_cnt{font-family:"돋움",dotum,AppleSDGothicNeo-Regular,sans-serif;color:#838793;cursor: pointer;}
+.api_area .u_likeit_list_module .u_likeit_list_btn .u_cnt:hover{text-decoration:underline}
