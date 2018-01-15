@@ -1,0 +1,9 @@
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\DrugManageSystemBate001\bin\Debug\DrugManageSystemBate001.exe.config
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\DrugManageSystemBate001\obj\Debug\DrugManageSystemBate001.csprojResolveAssemblyReference.cache
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\DrugManageSystemBate001\obj\Debug\DrugManageSystemBate001.Form1.resources
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\DrugManageSystemBate001\obj\Debug\DrugManageSystemBate001.Properties.Resources.resources
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\DrugManageSystemBate001\obj\Debug\DrugManageSystemBate001.csproj.GenerateResource.Cache
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\DrugManageSystemBate001\bin\Debug\DrugManageSystemBate001.exe
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\DrugManageSystemBate001\bin\Debug\DrugManageSystemBate001.pdb
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\DrugManageSystemBate001\obj\Debug\DrugManageSystemBate001.exe
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\DrugManageSystemBate001\obj\Debug\DrugManageSystemBate001.pdb

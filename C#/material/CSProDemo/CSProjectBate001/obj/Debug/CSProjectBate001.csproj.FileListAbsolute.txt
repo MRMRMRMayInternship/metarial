@@ -1,0 +1,10 @@
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSProjectBate001\bin\Debug\CSProjectBate001.exe.config
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSProjectBate001\obj\Debug\CSProjectBate001.csprojResolveAssemblyReference.cache
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSProjectBate001\obj\Debug\MainWindow.baml
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSProjectBate001\obj\Debug\MainWindow.g.cs
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSProjectBate001\obj\Debug\App.g.cs
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSProjectBate001\obj\Debug\CSProjectBate001_MarkupCompile.cache
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSProjectBate001\obj\Debug\CSProjectBate001.g.resources
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSProjectBate001\obj\Debug\CSProjectBate001.Properties.Resources.resources
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSProjectBate001\obj\Debug\CSProjectBate001.Views.PrescriptionInterfaceForm.resources
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSProjectBate001\obj\Debug\CSProjectBate001.csproj.GenerateResource.Cache

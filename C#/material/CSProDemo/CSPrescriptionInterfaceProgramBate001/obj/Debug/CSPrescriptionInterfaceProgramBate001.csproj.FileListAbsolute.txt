@@ -1,0 +1,15 @@
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSPrescriptionInterfaceProgramBate001\bin\Debug\CSPrescriptionInterfaceProgramBate001.exe.config
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSPrescriptionInterfaceProgramBate001\bin\Debug\CSPrescriptionInterfaceProgramBate001.exe
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSPrescriptionInterfaceProgramBate001\bin\Debug\CSPrescriptionInterfaceProgramBate001.pdb
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSPrescriptionInterfaceProgramBate001\obj\Debug\CSPrescriptionInterfaceProgramBate001.Properties.Resources.resources
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSPrescriptionInterfaceProgramBate001\obj\Debug\CSPrescriptionInterfaceProgramBate001.Views.DrugSearchForm.resources
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSPrescriptionInterfaceProgramBate001\obj\Debug\CSPrescriptionInterfaceProgramBate001.Views.LoginForm.resources
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSPrescriptionInterfaceProgramBate001\obj\Debug\CSPrescriptionInterfaceProgramBate001.Views.MyControl.MyPanel.resources
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSPrescriptionInterfaceProgramBate001\obj\Debug\CSPrescriptionInterfaceProgramBate001.Views.MyControl.ObjectListView.resources
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSPrescriptionInterfaceProgramBate001\obj\Debug\CSPrescriptionInterfaceProgramBate001.Views.PrescriptionFileListForm.resources
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSPrescriptionInterfaceProgramBate001\obj\Debug\CSPrescriptionInterfaceProgramBate001.Views.PrescriptionInterfaceForm.resources
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSPrescriptionInterfaceProgramBate001\obj\Debug\CSPrescriptionInterfaceProgramBate001.Views.UpdatingDrugForm.resources
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSPrescriptionInterfaceProgramBate001\obj\Debug\CSPrescriptionInterfaceProgramBate001.csproj.GenerateResource.Cache
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSPrescriptionInterfaceProgramBate001\obj\Debug\CSPrescriptionInterfaceProgramBate001.exe
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSPrescriptionInterfaceProgramBate001\obj\Debug\CSPrescriptionInterfaceProgramBate001.pdb
+C:\Users\VMS\Desktop\C-prescription\CSProDemo\CSPrescriptionInterfaceProgramBate001\obj\Debug\CSPrescriptionInterfaceProgramBate001.csprojResolveAssemblyReference.cache
